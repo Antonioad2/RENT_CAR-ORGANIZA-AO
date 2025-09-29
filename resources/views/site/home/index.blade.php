@@ -16,7 +16,7 @@
                                 </p>
                                 <div class="customer-list">
                                     <div class="users-wrap">
-                                        <ul class="users-list">
+                                        <!-- <ul class="users-list">
                                             <li>
                                                 <img src="{{ url('assets/user/img/profiles/avatar-11.jpg') }}"
                                                     class="img-fluid aos" alt="bannerimage">
@@ -29,19 +29,19 @@
                                                 <img src="{{ url('assets/user/img/profiles/avatar-03.jpg') }}"
                                                     class="img-fluid aos" alt="bannerimage">
                                             </li>
-                                        </ul>
-                                        <div class="customer-info">
+                                        </ul> -->
+                                        <!-- <div class="customer-info">
                                             <h4>6 mil + clientes</h4>
                                             <p>utilizaram nossos serviços de aluguel </p>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="view-all d-flex align-items-center gap-3">
                                         <a href="{{route('site.car-list')}}"
                                             class="btn btn-primary d-inline-flex align-items-center">Alugue um Carro<i
                                                 class="bx bx-right-arrow-alt ms-1"></i></a>
-                                        <a href="add-listing.html"
+                                        <!-- <a href="add-listing.html"
                                             class="btn btn-secondary d-inline-flex align-items-center"><i
-                                                class="bx bxs-plus-circle me-1"></i>Adicione seu Carro</a>
+                                                class="bx bxs-plus-circle me-1"></i>Adicione seu Carro</a> -->
                                     </div>
                                 </div>
                             </div>
