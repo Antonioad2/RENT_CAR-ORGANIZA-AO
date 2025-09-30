@@ -1,4 +1,4 @@
-@extends('site.layouts.main')
+@extends('layout._site.main')
 @section('title', 'AngoCar')
 @section('content')
     <div class="main-wrapper home-three">

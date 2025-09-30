@@ -1,4 +1,4 @@
-@extends('site.reservation.layouts.main')
+@extends('layout._site.main')
 @section('title', 'AngoCar - Ofertas')
 @section('content')
 
