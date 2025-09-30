@@ -12,12 +12,12 @@ class SupplierController extends Controller
     public function index()
     {
         $suppliers = Supplier::withCount('cars')->get();
-        return view('admin.suppliers.supplier.index', compact('suppliers'));
+        return view('_admin.suppliers.list.index', compact('suppliers'));
     }
 
     public function create()
     {
-        return view('admin.suppliers.supplierCreate.index');
+        return view('_admin.suppliers.create.index');
     }
 
     public function store(Request $request)
@@ -64,13 +64,13 @@ class SupplierController extends Controller
     public function show($id)
     {
         $supplier = Supplier::with('cars')->findOrFail($id);
-        return view('admin.suppliers.supplierView.index', compact('supplier'));
+        return view('_admin.suppliers.details.index', compact('supplier'));
     }
 
     public function edit($id)
     {
         $supplier = Supplier::findOrFail($id);
-        return view('admin.suppliers.supplierEdit.index', compact('supplier'));
+        return view('_admin.suppliers.edit.index', compact('supplier'));
     }
 
     public function update(Request $request, $id)

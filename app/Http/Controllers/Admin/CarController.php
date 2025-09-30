@@ -22,7 +22,7 @@ class CarController extends Controller
     {
         
         $cars = Car::with(['brand', 'color', 'fuel', 'models'])->get();
-        return view('admin.cars.car.index', compact('cars'));
+        return view('_admin.cars.list.index', compact('cars'));
     }
 
 
@@ -37,7 +37,7 @@ class CarController extends Controller
         $fuels  = Fuel::all();
         $suppliers = Supplier::all(); // Adicionando fornecedores para o formulário
 
-        return view('admin.cars.carCreate.index', compact('brands', 'models', 'colors', 'fuels', 'suppliers'));  
+        return view('_admin.cars.create.index', compact('brands', 'models', 'colors', 'fuels', 'suppliers'));  
     }
 
 
@@ -129,7 +129,7 @@ class CarController extends Controller
     {
         $car = Car::findOrFail($id);
         $car->load(['brand', 'models', 'color', 'fuel']);
-        return view('admin.cars.carView.index', compact('car'));
+        return view('_admin.cars.details.index', compact('car'));
     }
 
     /**
@@ -144,7 +144,7 @@ class CarController extends Controller
     $fuels  = Fuel::all();
     $suppliers = Supplier::all();
 
-    return view('admin.cars.carEdit.index', compact('car', 'brands', 'models', 'colors', 'fuels', 'suppliers'));
+    return view('_admin.cars.edit.index', compact('car', 'brands', 'models', 'colors', 'fuels', 'suppliers'));
 }
 
 

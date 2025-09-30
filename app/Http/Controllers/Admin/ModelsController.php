@@ -12,13 +12,13 @@ class ModelsController extends Controller
     public function index()
     {
         $models = Models::with('brand')->get(); // Eager load brand for display
-        return view('admin.models.model.index', compact('models'));
+        return view('_admin.models.list.index', compact('models'));
     }
 
     public function create()
     {
         $brands = Brand::all(); // Fetch all brands for dropdown
-        return view('admin.models.modelCreate.index', compact('brands'));
+        return view('_admin.models.create.index', compact('brands'));
     }
 
     public function store(Request $request)
@@ -49,7 +49,7 @@ class ModelsController extends Controller
     public function show(Models $models)
     {
         $model = $models;
-        return view('admin.models.modelView.index', compact('model'));
+        return view('_admin.models.details.index', compact('model'));
     }
 
     public function edit(Models $models)
@@ -57,7 +57,7 @@ class ModelsController extends Controller
         $model = $models;
         $brands = Brand::all();
 
-        return view('admin.models.modelEdit.index', compact('model', 'brands'));
+        return view('_admin.models.edit.index', compact('model', 'brands'));
     }
 
     public function update(Request $request, Models $models)

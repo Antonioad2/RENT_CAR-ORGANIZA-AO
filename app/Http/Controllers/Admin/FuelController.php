@@ -12,7 +12,7 @@ class FuelController extends Controller
     public function index()
     {
         $fuels = Fuel::all();
-        return view('admin.fuels.fuel.index', compact('fuels'));
+        return view('_admin.fuels.list.index', compact('fuels'));
     }
 
     /**
@@ -22,7 +22,7 @@ class FuelController extends Controller
      */
     public function create()
     {
-        return view('admin.fuels.fuelCreate.index');
+        return view('_admin.fuels.create.index');
     }
 
     /**
@@ -62,7 +62,7 @@ class FuelController extends Controller
     public function show(Fuel $fuel)
     {
         $fuel = fuel::findOrFail($fuel->id);
-        return view('admin.fuels.fuelView.index', compact('fuel')); // Caminho diferente para view única
+        return view('_admin.fuels.details.index', compact('fuel')); // Caminho diferente para view única
         //
 
     }
@@ -76,7 +76,7 @@ class FuelController extends Controller
  public function edit(Fuel $fuel)
     {
         //
-        return view('admin.fuels.fuelEdit.index', ['fuel' => $fuel]);
+        return view('_admin.fuels.edit.index', ['fuel' => $fuel]);
     }
 
     /**

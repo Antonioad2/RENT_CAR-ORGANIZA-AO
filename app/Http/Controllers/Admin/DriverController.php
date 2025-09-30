@@ -13,7 +13,7 @@ class DriverController extends Controller
     public function index()
     {
         $drivers = Driver::latest()->paginate(10); 
-        return view('admin.drivers.driver.index', compact('drivers'));
+        return view('_admin.drivers.list.index', compact('drivers'));
     }
 
     /**
@@ -21,7 +21,7 @@ class DriverController extends Controller
      */
     public function create()
     {
-        return view('admin.drivers.driverCreate.index');
+        return view('_admin.drivers.create.index');
     }
 
     /**
@@ -77,7 +77,7 @@ class DriverController extends Controller
      */
     public function show(Driver $driver)
     {
-        return view('admin.drivers.driverView.index', compact('driver'));
+        return view('_admin.drivers.details.index', compact('driver'));
     }
 
     /**
@@ -85,7 +85,7 @@ class DriverController extends Controller
      */
     public function edit(Driver $driver)
     {
-        return view('admin.drivers.driverEdit.index', compact('driver'));
+        return view('_admin.drivers.edit.index', compact('driver'));
     }
 
     /**

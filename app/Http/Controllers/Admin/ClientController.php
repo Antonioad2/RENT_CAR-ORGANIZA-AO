@@ -13,13 +13,13 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all(); // <- Aqui
-        return view('admin.clients.client.index', compact('clients'));
+        return view('_admin.clients.list.index', compact('clients'));
     }
 
 
     public function create()
     {
-        return view('admin.clients.clientCreate.index');
+        return view('_admin.clients.create.index');
     }
 
     public function store(Request $request)
@@ -58,13 +58,13 @@ class ClientController extends Controller
     public function show($id)
     {
         $client = Client::find($id); 
-        return view('admin.clients.clientView.index', compact('client'));
+        return view('_admin.clients.details.index', compact('client'));
     }
 
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        return view('admin.clients.clientEdit.index', compact('client'));
+        return view('_admin.clients.edit.index', compact('client'));
     }
 
     public function update(Request $request, $id)

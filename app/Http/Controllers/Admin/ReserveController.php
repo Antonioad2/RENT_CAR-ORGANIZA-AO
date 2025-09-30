@@ -20,7 +20,7 @@ class ReserveController extends Controller
     public function index()
     {
         $reserves = Reserve::with(['client', 'car', 'driver'])->latest()->get();
-        return view('admin.reserves.reserve.index', compact('reserves'));
+        return view('_admin.reserves.list.index', compact('reserves'));
     }
 
     /**
@@ -33,7 +33,7 @@ class ReserveController extends Controller
         $drivers = Driver::all();
 
         // passamos 'resources' (config) opcionalmente para view (não obrigatório)
-        return view('admin.reserves.reserveCreate.index', compact('clients', 'cars', 'drivers'));
+        return view('_admin.reserves.create.index', compact('clients', 'cars', 'drivers'));
     }
 
     public function store(Request $request)
@@ -111,7 +111,7 @@ class ReserveController extends Controller
     public function show($id)
     {
         $reserve = Reserve::with(['client', 'car', 'driver'])->findOrFail($id);
-        return view('admin.reserves.reserveView.index', compact('reserve'));
+        return view('_admin.reserves.details.index', compact('reserve'));
     }
 
     /**
@@ -123,7 +123,7 @@ class ReserveController extends Controller
         $clients = Client::all();
         $cars = Car::all();
         $drivers = Driver::all();
-        return view('admin.reserves.reserveEdit.index', compact('reserve', 'clients', 'cars', 'drivers'));
+        return view('_admin.reserves.edit.index', compact('reserve', 'clients', 'cars', 'drivers'));
     }
 
     /**

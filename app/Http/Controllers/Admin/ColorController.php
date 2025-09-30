@@ -12,7 +12,7 @@ class ColorController extends Controller
     public function index()
     {
         $colors = Color::all();
-        return view('admin.colors.color.index', compact('colors'));
+        return view('_admin.colors.list.index', compact('colors'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ColorController extends Controller
      */
     public function create()
     {
-        return view('admin.colors.colorCreate.index');
+        return view('_admin.colors.create.index');
     }
 
     /**
@@ -62,7 +62,7 @@ class ColorController extends Controller
     public function show(Color $color)
     {
         $color = Color::findOrFail($color->id);
-        return view('admin.colors.colorView.index', compact('color')); // Caminho diferente para view única
+        return view('_admin.colors.details.index', compact('color')); // Caminho diferente para view única
         //
     }
 
@@ -75,7 +75,7 @@ class ColorController extends Controller
  public function edit(Color $color)
     {
         //
-        return view('admin.colors.colorEdit.index', ['color' => $color]);
+        return view('_admin.colors.edit.index', ['color' => $color]);
     }
 
     /**

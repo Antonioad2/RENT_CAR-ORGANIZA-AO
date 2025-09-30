@@ -12,12 +12,12 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.users.user.index', compact('users'));
+        return view('_admin.users.list.index', compact('users'));
     }
 
     public function create()
     {
-        return view('admin.users.userCreate.index');
+        return view('_admin.users.create.index');
     }
 
     public function store(Request $request)
@@ -39,13 +39,13 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.users.userView.index', compact('user'));
+        return view('_admin.users.details.index', compact('user'));
     }
 
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.users.userEdit.index', compact('user'));
+        return view('_admin.users.edit.index', compact('user'));
     }
 
     public function update(Request $request, $id)

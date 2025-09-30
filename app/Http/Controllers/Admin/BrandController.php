@@ -13,7 +13,7 @@ class BrandController extends Controller
     public function index()
     {
         $brands = Brand::all();
-        return view('admin.brands.brand.index', compact('brands'));
+        return view('_admin.brands.list.index', compact('brands'));
     }
 
     /**
@@ -23,7 +23,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('admin.brands.brandCreate.index');
+        return view('_admin.brands.create.index');
     }
 
     /**
@@ -64,7 +64,7 @@ class BrandController extends Controller
     public function show(Brand $brand)
     {
         $brand = Brand::findOrFail($brand->id);
-        return view('admin.brands.brandView.index', compact('brand')); // Caminho diferente para view única
+        return view('_admin.brands.details.index', compact('brand')); // Caminho diferente para view única
         //
 
     }
@@ -78,7 +78,7 @@ class BrandController extends Controller
  public function edit(Brand $brand)
     {
         //
-        return view('admin.brands.brandEdit.index', ['brand' => $brand]);
+        return view('_admin.brands.edit.index', ['brand' => $brand]);
     }
 
     /**
