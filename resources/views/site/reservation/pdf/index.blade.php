@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <style>
@@ -11,150 +10,168 @@
         body {
             font-family: DejaVu Sans, sans-serif;
             font-size: 13px;
-            color: #333;
+            color: #111; /* Preto mais forte */
+            line-height: 1.5;
         }
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 3px solid #f7c600; /* Amarelo forte */
+            padding-bottom: 10px;
             margin-bottom: 20px;
         }
 
         header img {
-            height: 50px;
+            height: 55px;
         }
 
         h2 {
-            color: #007bff;
-            margin-bottom: 5px;
+            color: #000; /* Preto */
+            margin: 0;
+            font-size: 22px;
         }
 
         h4 {
-            color: #555;
-            margin-top: 5px;
+            color: #444;
+            margin: 5px 0 10px 0;
         }
 
         .section {
             margin-bottom: 20px;
         }
 
+        /* Mensagem de sucesso */
         .success {
-            background-color: #e6f7e6;
-            border: 1px solid #b3e6b3;
-            padding: 10px;
+            background-color: #fff8d6; /* Amarelo claro */
+            border: 1px solid #f7c600;
+            color: #111;
+            padding: 12px;
             border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            margin-top: 8px;
+            font-size: 13px;
         }
 
-        td,
-        th {
+        td, th {
             border: 1px solid #ddd;
             padding: 8px;
+        }
+
+        th {
+            background: #f7c600; /* Cabeçalho amarelo */
+            color: #000;         /* Texto preto */
             text-align: left;
         }
 
-        th {
-            background: #f5f5f5;
+        tr:nth-child(even) {
+            background: #fdfdfd;
         }
 
         .total {
             font-weight: bold;
+            background: #000; /* Amarelo */
+            color: #000;
         }
 
         .footer {
             text-align: center;
-            font-size: 12px;
-            color: #777;
+            font-size: 11px;
+            color: #555;
             margin-top: 30px;
+            border-top: 1px solid #f7c600;
+            padding-top: 10px;
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Cabeçalho com Logo e Título -->
+    <!-- Cabeçalho -->
     <header>
         <div>
-            <img src="{{ url('assets/user/img/logo.png') }}" alt="Logo AngoCars">
+            <img src="{{ public_path('assets/user/img/ango-cars-2.png') }}" >
         </div>
         <div>
-            <h2>Reserva Confirmada</h2>
-            <h4>#{{ $reservation->id }}</h4>
+            <h2>Reserva Confirmada Nº {{ $reservation->id }}</h2>
+            <h4>Data: {{ \Carbon\Carbon::now()->format('d/m/Y H:i') }}</h4>
         </div>
     </header>
 
-    <!-- Mensagem de Sucesso -->
+    <!-- Mensagem -->
     <div class="success">
-        Obrigado! Seu pedido foi recebido.
+        ✅ Obrigado, {{ $reservation->client->name }}! Sua reserva foi confirmada.
     </div>
 
     <!-- Dados do Cliente -->
     <div class="section">
-        <strong>Cliente:</strong> {{ $reservation->client->name }} <br>
+        <h4>Dados do Cliente</h4>
+        <strong>Nome:</strong> {{ $reservation->client->name }} <br>
         <strong>Email:</strong> {{ $reservation->client->email }} <br>
         <strong>Telefone:</strong> {{ $reservation->client->phone }}
     </div>
-
-    <!-- Informações do Carro -->
+        
+    <!-- Informações da Reserva -->
     <div class="section">
-        <strong>Carro Reservado:</strong>{{ $reservation->car->brand->name }} {{ $reservation->car->models->name }} <br>
-        <strong>Localização:</strong> {{ $reservation->pickup_location }} <br>
-        <strong>Valor Total:</strong> ${{ $reservation->total }}
+        <h4>Detalhes da Reserva</h4>
+        <strong>Veículo:</strong> {{ $reservation->car->brand->name }} {{ $reservation->car->models->name }} <br>
+        <strong>Local de Retirada:</strong> {{ $reservation->pickup_location }} <br>
+        <strong>Local de Devolução:</strong> {{ $reservation->return_location }} <br>
+        <strong>Valor Total:</strong> <span style="color:#000; font-weight:bold;">
+            KZ {{ number_format($reservation->total_amount, 2, ',', '.') }}
+        </span>
     </div>
 
-    <!-- Detalhes de Datas -->
+    <!-- Datas -->
     <div class="section">
+        <h4>Período</h4>
         <table>
             <thead>
                 <tr>
-                    <th>Retirada</th>
-                    <th>Devolução</th>
+                    <th>Data de Retirada</th>
+                    <th>Data de Devolução</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ \Carbon\Carbon::parse($reservation->pickup_date)->format('d/m/Y H:i') }}</td>
-                    <td>{{ \Carbon\Carbon::parse($reservation->return_date)->format('d/m/Y H:i') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($reservation->start_date)->format('d/m/Y ') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($reservation->end_date)->format('d/m/Y ') }} </td>
+                    
+                    
                 </tr>
             </tbody>
         </table>
     </div>
 
     <!-- Serviços Extras -->
-    @php
-        $extras = $reservation->decoded_resources ?? [];
-    @endphp
-
-    @if (!empty($extras))
+    @if (!empty($reservation->decoded_resources))
         <div class="section">
-            <strong>Serviços Extras:</strong>
+            <h4>Serviços Extras</h4>
             <table>
                 <thead>
                     <tr>
                         <th>Serviço</th>
-                        <th>Preço</th>
+                        <th>Preço (KZ)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($extras as $extraKey)
-                        @php
-                            $config = config("resources.extras.$extraKey");
-                        @endphp
+                    @foreach ($reservation->decoded_resources as $extraKey)
+                        @php $config = config("resources.extras.$extraKey"); @endphp
                         <tr>
                             <td>{{ $config['label'] ?? $extraKey }}</td>
-                            <td>${{ $config['price'] ?? 0 }}</td>
+                            <td>{{ number_format($config['price'] ?? 0, 2, ',', '.') }}</td>
                         </tr>
                     @endforeach
                     <tr class="total">
                         <td>Total Extras</td>
                         <td>
-                            ${{ collect($extras)->sum(fn($e) => config("resources.extras.$e.price", 0)) }}
+                            {{ number_format(collect($reservation->decoded_resources)->sum(fn($e) => config("resources.extras.$e.price", 0)), 2, ',', '.') }}
                         </td>
                     </tr>
                 </tbody>
@@ -162,16 +179,17 @@
         </div>
     @endif
 
-
     <!-- Motorista -->
     <div class="section">
-        <strong>Motorista:</strong> {{ optional($reservation->driver)->name ?? 'N/A' }}
+        <h4>Motorista</h4>
+        <strong>{{ optional($reservation->driver)->full_name ?? 'Não incluído' }}</strong>
     </div>
 
     <!-- Rodapé -->
     <div class="footer">
-        © {{ date('Y') }} AngoCars - Obrigado por escolher nossos serviços!
+        © {{ date('Y') }} AngoCars - Obrigado por escolher nossos serviços! <br>
+        📞 +244 930 000 000 | ✉️ suporte@angocars.com
     </div>
-</body>
 
+</body>
 </html>

@@ -77,7 +77,8 @@
                         </div>
                         <div class="book-info">
                             <h6>{{ $reservation->car->name }}</h6>
-                            <p><i class="feather-map-pin"></i> Localização: {{ $reservation->pickup_location }}</p>
+                            <p><i class="feather-map-pin"></i> Localização de Entrega: {{ $reservation->pickup_location }}</p>
+                            <p><i class="feather-map-pin"></i> Localização de Retorno: {{ $reservation->return_location }}</p>
                         </div>
                     </div>
                     <div class="book-amount">
@@ -111,7 +112,7 @@
                     <div class="col-lg-6 col-md-6 d-flex">
                         <div class="book-card flex-fill">
                             <div class="book-head">
-                                <h6>Localização e hora</h6>
+                                <h6>Localização e Data</h6>
                             </div>
                             <div class="book-body">
                                 <ul class="location-lists">
@@ -122,7 +123,7 @@
                                     </li>
                                     <li>
                                         <h6>Devolução</h6>
-                                        <p>{{ $reservation->pickup_location }}</p>
+                                        <p>{{ $reservation->return_location }}</p>
                                         <p>{{ \Carbon\Carbon::parse($reservation->end_date)->format('d/m/Y') }}</p>
                                     </li>
                                 </ul>
@@ -141,7 +142,7 @@
                                     @forelse($extrasData as $extra)
                                         <li>
                                             <p>{{ $extra['name'] }}</p>
-                                            <span>+ {{ number_format($extra['price'], 2) }} Kz</span>
+                                            <span>+ {{ number_format($extra['price'], 2, ',', '.') }} Kz</span>
                                         </li>
                                     @empty
                                         <li>
@@ -153,6 +154,7 @@
                         </div>
                     </div>
 
+
                     <!-- Driver Details -->
                     <div class="col-lg-6 col-md-6 d-flex">
                         <div class="book-card flex-fill">
@@ -162,15 +164,14 @@
                             <div class="book-body">
                                 @if ($reservation->driver)
                                     <div class="driver-info">
-                                        <span>
-                                            <img src="{{ $reservation->driver->image_url ?? asset('assets/user/img/drivers/default.jpg') }}"
-                                                alt="imagem">
+                                        <span style="font-size: 40px; color: #132538ff; padding-right: 10px;">
+                                            <i class="fa-solid fa-user-tie fa-2x"></i>
                                         </span>
+                                        
                                         <div class="driver-name">
                                             <h6>{{ $reservation->driver->full_name }}</h6>
                                             <ul>
-                                                <li>Número de passeios concluídos:
-                                                    {{ $reservation->driver->completed_rides ?? '—' }}</li>
+                                                
                                                 <li>Preço: {{ formatKz($reservation->driver->daily_price) }}/dia
                                                 </li>
                                             </ul>

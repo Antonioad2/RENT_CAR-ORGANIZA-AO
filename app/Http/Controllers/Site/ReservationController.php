@@ -113,120 +113,122 @@ class ReservationController extends Controller
             ->with('reservation_stage', 3);
     }
 
-    // ----------------- Confirmação -----------------
-    public function confirm(Request $request)
-    {
-        $data         = session('reservation_data');
-        $dataServices = session('reservation_services');
+   // ----------------- Confirmação -----------------
+public function confirm(Request $request)
+{
+    $data         = session('reservation_data');
+    $dataServices = session('reservation_services');
 
-        Log::info('Confirm(): dados sessão', [
-            'data' => $data,
-            'time' => $data,
-            'dataServices' => $dataServices,
-            'request' => $request->all(),
-        ]);
+    Log::info('Confirm(): dados sessão', [
+        'data' => $data,
+        'dataServices' => $dataServices,
+        'request' => $request->all(),
+    ]);
 
+    if (!$data || !$dataServices) {
+        return redirect()->route('site.home')
+            ->with('error', 'Sessão expirada, faça a reserva novamente.');
+    }
 
-        if (!$data || !$dataServices) {
-            return redirect()->route('site.home')
-                ->with('error', 'Sessão expirada, faça a reserva novamente.');
-        }
+    $client = session('reservation_client');
+    $car    = Car::findOrFail($data['car_id']);
 
-        $client = session('reservation_client');
-        $car    = Car::findOrFail($data['car_id']);
+    $start = new \Carbon\Carbon($data['start_date']);
+    $end   = new \Carbon\Carbon($data['end_date']);
+    $days  = $end->diffInDays($start) ?: 1;
+    $price = $days * $car->price;
 
-        $start = new \Carbon\Carbon($data['start_date']);
-        $end   = new \Carbon\Carbon($data['end_date']);
-        $days  = $end->diffInDays($start) ?: 1;
-        $price = $days * $car->price;
+    // 🔹 Motorista
+    $driver = null;
+    if (!empty($dataServices['driver_id'])) {
+        $driver = Driver::find($dataServices['driver_id']);
+        $price += $driver ? $days * $driver->daily_price : 0;
+    }
 
-        if (!empty($data['driver_id'])) {
-            $driver = Driver::find($data['driver_id']);
-            $price += $driver ? $days * $driver->daily_price : 0;
-        }
-
-        $dataServices = session('reservation_services');
-        if (!empty($dataServices['extras'])) {
-            foreach ($dataServices['extras'] as $extra) {
-                $config = config("resources.extras.$extra");
-                $price += $config['price'] ?? 0;
-            }
-        }
-
-
-        DB::beginTransaction();
-        try {
-            $card = Card::where('client_id', $client->id)
-                ->where('card_number', $request->card_number)
-                ->lockForUpdate()
-                ->first();
-
-            if (!$card) {
-                Log::warning('Falha no pagamento: ', [
-                    'motivo' => 'Cartão não encontrado',
-                    'input' => $request->card_number
-                ]);
-                return back()
-                    ->withInput()
-                    ->with('error', 'Cartão não encontrado. Verifique o número e tente novamente.');
-            }
-            if ($card->balance < $price) {
-                Log::warning('Falha no pagamento: ', [
-                    'motivo' => 'Saldo Insuficiente'
-                ]);
-
-                return back()
-                    ->withInput()
-                    ->with('error', 'Saldo insuficiente. Carregue a sua conta.');
-            }
-
-            $card->balance -= $price;
-            $card->save();
-
-            $company = CompanyAccount::first();
-            $company->balance += $price;
-            $company->save();
-
-            $reserva = Reserve::create([
-                'car_id'          => $car->id,
-                'client_id'       => $client->id,
-                'driver_id'       => $data['driver_id'] ?? null,
-                'pickup_location' => $data['pickup_location'],
-                'return_location' => $data['return_location'],
-                'start_date'      => $data['start_date'],
-                'end_date'        => $data['end_date'],
-                'delivery_time'   => $data['delivery_time'],
-                'return_time'   => $data['return_time'],
-                'resources'       => !empty($data['extras']) ? json_encode($data['extras']) : null,
-                'total_amount'    => $price,
-                'status'          => 'in_progress',
-            ]);
-
-            session(['last_reservation_id' => $reserva->id]);
-
-            DB::commit();
-
-            Log::info('Reserva criada com sucesso', ['reserva_id' => $reserva->id]);
-
-            session(['reservation_stage' => 4]); // <-- Novo: 4 significa "finalizado"
-
-            try {
-                Mail::to($reserva->client->email)->send(new ConfirmacaoReservaMail($reserva));
-            } catch (\Exception $e) {
-                Log::error('Erro ao enviar email: ' . $e->getMessage());
-            }
-
-            session()->forget(['reservation_data', 'reservation_services', 'reservation_client']);
-            // deixa car_id e reservation_stage até o utilizador sair/novo fluxo
-
-
-            return redirect()->route('car.confirmed', ['id' => $reserva->id])->with('success', 'Reserva confirmada!');
-
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return back()->withErrors(['error' => 'Erro no pagamento: ' . $e->getMessage()]);
+    // 🔹 Extras
+    if (!empty($dataServices['extras'])) {
+        foreach ($dataServices['extras'] as $extra) {
+            $config = config("resources.extras.$extra");
+            $price += $config['price'] ?? 0;
         }
     }
+
+    DB::beginTransaction();
+    try {
+        $card = Card::where('client_id', $client->id)
+            ->where('card_number', $request->card_number)
+            ->lockForUpdate()
+            ->first();
+
+        if (!$card) {
+            Log::warning('Falha no pagamento: ', [
+                'motivo' => 'Cartão não encontrado',
+                'input' => $request->card_number
+            ]);
+            return back()
+                ->withInput()
+                ->with('error', 'Cartão não encontrado. Verifique o número e tente novamente.');
+        }
+
+        if ($card->balance < $price) {
+            Log::warning('Falha no pagamento: ', [
+                'motivo' => 'Saldo Insuficiente'
+            ]);
+            return back()
+                ->withInput()
+                ->with('error', 'Saldo insuficiente. Carregue a sua conta.');
+        }
+
+        // Atualizar saldos
+        $card->balance -= $price;
+        $card->save();
+
+        $company = CompanyAccount::first();
+        $company->balance += $price;
+        $company->save();
+
+        // Criar reserva
+        $reserva = Reserve::create([
+            'car_id'          => $car->id,
+            'client_id'       => $client->id,
+            'driver_id'       => $driver ? $driver->id : null,
+            'pickup_location' => $data['pickup_location'],
+            'return_location' => $data['return_location'],
+            'start_date'      => $data['start_date'],
+            'end_date'        => $data['end_date'],
+            'delivery_time'   => $data['delivery_time'],
+            'return_time'     => $data['return_time'],
+            'resources'       => !empty($dataServices['extras']) ? json_encode($dataServices['extras']) : null,
+            'total_amount'    => $price,
+            'status'          => 'in_progress',
+        ]);
+
+        session(['last_reservation_id' => $reserva->id]);
+
+        DB::commit();
+
+        Log::info('Reserva criada com sucesso', ['reserva_id' => $reserva->id]);
+
+        session(['reservation_stage' => 4]); // finalizado
+
+        try {
+            Mail::to($reserva->client->email)->send(new ConfirmacaoReservaMail($reserva));
+        } catch (\Exception $e) {
+            Log::error('Erro ao enviar email: ' . $e->getMessage());
+        }
+
+        // Limpar sessão (mas manter car_id e reservation_stage)
+        session()->forget(['reservation_data', 'reservation_services', 'reservation_client']);
+
+        return redirect()->route('car.confirmed', ['id' => $reserva->id])
+            ->with('success', 'Reserva confirmada!');
+
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return back()->withErrors(['error' => 'Erro no pagamento: ' . $e->getMessage()]);
+    }
+}
+
 
     // ----------------- NOVO: Checkout -----------------
     public function checkout()
@@ -353,20 +355,21 @@ class ReservationController extends Controller
     }
 
 
-    public function generatePdf($id)
-    {
-        $reservation = Reserve::with(['car', 'client', 'driver'])->findOrFail($id);
+   public function generatePdf($id)
+{
+    \Log::info('Max execution time: ' . ini_get('max_execution_time')); // Log do valor atual
+    ini_set('max_execution_time', 300); // Forçar 300 segundos temporariamente
+    ini_set('memory_limit', '512M'); // Aumentar memória
 
-        // Decodifica o JSON dos extras
-        $reservation->decoded_resources = $reservation->resources
-            ? json_decode($reservation->resources, true)
-            : [];
+    $reservation = Reserve::with(['car', 'client', 'driver'])->findOrFail($id);
+    $reservation->decoded_resources = $reservation->resources
+        ? json_decode($reservation->resources, true)
+        : [];
 
-        $pdf = Pdf::loadView('site.reservation.pdf.index', compact('reservation'))
+    $pdf = Pdf::loadView('site.reservation.pdf.index', compact('reservation'))
+        ->setPaper('a4', 'portrait');
 
-            ->setPaper('a4', 'portrait');
-
-        return $pdf->download("reserva_{$reservation->id}.pdf");
-    }
+    return $pdf->download("reserva_{$reservation->id}.pdf");
+}
     
 }

@@ -40,7 +40,7 @@ class Reserve extends Model
 
     public function driver()
     {
-        return $this->belongsTo(Driver::class);
+        return $this->belongsTo(Driver::class , 'driver_id');
     }
 
     protected static function booted()
@@ -69,6 +69,6 @@ class Reserve extends Model
         });
     }
 
-
+    
 }
 

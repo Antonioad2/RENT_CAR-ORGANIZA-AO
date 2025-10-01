@@ -130,14 +130,18 @@ class HomeController extends Controller
     }
 
     public function carConfirmed($id)
-    {
-        // Carrega reserva com carro, cliente e motorista
-        $reservation = Reserve::with(['car', 'client', 'driver'])->findOrFail($id);
+{
+    // Carrega reserva com carro, cliente e motorista
+    $reservation = Reserve::with(['car', 'client', 'driver'])->findOrFail($id);
 
-        // Monta os extras a partir do campo resources da reserva
-        $extrasData = [];
-        if (!empty($reservation->resources)) {
-            foreach ($reservation->resources as $key) {
+    // Monta os extras a partir do campo resources da reserva
+    $extrasData = [];
+    if (!empty($reservation->resources)) {
+        // Decodifica o JSON em array
+        $resources = json_decode($reservation->resources, true);
+
+        if (is_array($resources)) {
+            foreach ($resources as $key) {
                 $extra = config("resources.extras.$key");
                 if ($extra) {
                     $extrasData[] = [
@@ -148,13 +152,15 @@ class HomeController extends Controller
                 }
             }
         }
-
-        return view('site.reservation.car-confirmed.index', [
-            'reservation' => $reservation,
-            'car'         => $reservation->car,
-            'extrasData'  => $extrasData,
-        ]);
     }
+
+    return view('site.reservation.car-confirmed.index', [
+        'reservation' => $reservation,
+        'car'         => $reservation->car,
+        'extrasData'  => $extrasData,
+    ]);
+}
+
 
     public function carDetails($car_id)
     {

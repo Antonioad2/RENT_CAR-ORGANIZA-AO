@@ -19,7 +19,7 @@ class CardsSeeder extends Seeder
         'card_number' => '000620012002200320041',
         'card_name' => 'Bráulio Cândido',
         'bank' => 'BAI',
-        'balance' => 4500000
+        'balance' => 450000000
     ]);
 
     Card::create([
@@ -27,7 +27,7 @@ class CardsSeeder extends Seeder
         'card_number' => '000620012002200320042',
         'card_name' => 'António Adão',
         'bank' => 'BFA',
-        'balance' => 1000000
+        'balance' => 1000000000
     ]);
 
     Card::create([
@@ -35,7 +35,7 @@ class CardsSeeder extends Seeder
         'card_number' => '000620012002200320433',
         'card_name' => 'Paulo Alexandre',
         'bank' => 'BFA',
-        'balance' => 70000000
+        'balance' => 7000000000
     ]);
 
     CompanyAccount::create([
