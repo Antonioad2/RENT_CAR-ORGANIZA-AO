@@ -82,7 +82,7 @@
                     </div>
                     <div class="card-body p-0">
                         <div class="px-4 pt-4">
-                            <div class="d-md-flex align-items-center justify-content-between">
+                            <!-- <div class="d-md-flex align-items-center justify-content-between">
                                 <div class="mb-4 mb-md-0 your-brand">
                                     <div class="wd-100 ht-100 position-relative overflow-hidden border border-gray-2 rounded">
                                         <img src="{{ url('assets/images/logo-abbr.png')}}" class="upload-pic img-fluid rounded h-100 w-100" alt="">
@@ -92,7 +92,7 @@
                                         <input class="file-upload" type="file" accept="image/*">
                                     </div>
                                     <div class="fs-12 text-muted mt-2">* Upload your brand</div>
-                                </div>
+                                </div> -->
                                 <!--<div class="d-md-flex align-items-center justify-content-end gap-4">
                                     <div class="form-group mb-3 mb-md-0">
                                         <label class="form-label">Issue Date:</label>

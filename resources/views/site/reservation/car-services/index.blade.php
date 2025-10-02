@@ -485,7 +485,7 @@
                                     </div>
                                 </div>
                                 <div class="booking-info-btns d-flex justify-content-end">
-                                    <a href="booking-checkout.html" class="btn btn-secondary">Voltar para Localização e Hora</a>
+                                    <a href="" class="btn btn-secondary">Voltar para Localização e Hora</a>
                                     <button class="btn btn-primary continue-book-btn" type="submit">Continue
                                         Reservando</button>
                                 </div>

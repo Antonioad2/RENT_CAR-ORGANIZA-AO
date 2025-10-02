@@ -10,17 +10,20 @@
                         <span></span>
                     </span>
                 </a>
-                <a href="{{ route('home') }}" class="navbar-brand logo">
+               <!--  <a href="{{ route('home') }}" class="navbar-brand logo">
                     <img src="{{ url('assets/user/img/logo.svg')}}" class="img-fluid" alt="Logo">
                 </a>
                 <a href="{{ route('home') }}" class="navbar-brand logo-small">
                     <img src="{{ url('assets/user/img/logo-small.png')}}" class="img-fluid" alt="Logo">
+                </a> -->
+                <a href="{{ route('home') }}" class="navbar-brand logo">
+                <img src="{{ url('assets/user/img/ango-cars-2.png') }}" alt="" style="width: 150px; height: 70px; margin-top: -20px;">
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
                     <a href="{{ route('home') }}" class="menu-logo">
-                        <img src="{{ url('assets/user/img/logo.svg')}}" class="img-fluid" alt="Logo">
+                        <img src="{{ url('assets/user/img/ango-cars-2.png')}}" class="img-fluid" alt="Logo">
                     </a>
                     <a id="menu_close" class="menu-close" href="javascript:void(0);"> <i class="fas fa-times"></i></a>
                 </div>

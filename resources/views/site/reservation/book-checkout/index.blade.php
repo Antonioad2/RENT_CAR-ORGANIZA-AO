@@ -208,7 +208,7 @@
                                     </div> --}}
 
                                     <div class="booking-info-btns d-flex justify-content-end">
-                                        <a href="booking-checkout.html" class="btn btn-secondary">Voltar para Localização
+                                        <a href="#" class="btn btn-secondary">Voltar para Localização
                                             e Horário</a>
                                         <button class="btn btn-primary continue-book-btn" type="submit">Continuar a
                                             Reserva</button>
@@ -267,11 +267,11 @@
                                 </div>
 
                                 <!-- Botão Continuar -->
-                                <div class="mt-3">
+                                <!-- <div class="mt-3">
                                     <button type="submit" form="extras-form" class="btn btn-primary w-100">
                                         Continuar a Reserva
                                     </button>
-                                </div>
+                                </div> -->
 
                             </div>
                         </div>

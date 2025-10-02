@@ -306,11 +306,11 @@
                                 </div>
 
                                 <!-- Botão Confirmar -->
-                                <div class="mt-3">
+                               <!--  <div class="mt-3">
                                     <button type="submit" form="reservation-form" class="btn btn-primary w-100">
                                         Confirmar & Pagar
                                     </button>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 

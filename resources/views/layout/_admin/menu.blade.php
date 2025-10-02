@@ -3,8 +3,9 @@
         <div class="m-header">
             <a href="/admin" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
-                <img src="{{ url('assets/images/logo-full.png')}}" alt="" class="logo logo-lg">
-                <img src="{{ url('assets/images/logo-abbr.png')}}" alt="" class="logo logo-sm">
+                <div style="display: flex; justify-content: center; align-items: center;">
+                     <img src="{{ url('assets/user/img/ango-cars.png') }}" alt="" style="width: 7.5rem; height: 3.5rem; margin-top: -1px;">
+                </div>
             </a>
         </div>
         <div class="navbar-content">
