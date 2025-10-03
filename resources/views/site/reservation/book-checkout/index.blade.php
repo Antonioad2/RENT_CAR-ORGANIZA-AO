@@ -208,7 +208,7 @@
                                     </div> --}}
 
                                     <div class="booking-info-btns d-flex justify-content-end">
-                                        <a href="#" class="btn btn-secondary">Voltar para Localização
+                                        <a href="{{ route('car.details', ['car_id' => $car->id]) }}" class="btn btn-secondary">Voltar para Localização
                                             e Horário</a>
                                         <button class="btn btn-primary continue-book-btn" type="submit">Continuar a
                                             Reserva</button>

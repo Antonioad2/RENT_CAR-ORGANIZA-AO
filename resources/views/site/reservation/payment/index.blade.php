@@ -14,11 +14,11 @@
                     </h2>
                     <nav aria-label="migalhas de pão" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a>
+                            <!-- <li class="breadcrumb-item"><a>
                                     <font dir="auto" style="vertical-align: inherit;">
                                         <font dir="auto" style="vertical-align: inherit;">Lar</font>
                                     </font>
-                                </a></li>
+                                </a></li> -->
                             <li class="breadcrumb-item active" aria-current="page">
                                 <font dir="auto" style="vertical-align: inherit;">
                                     <font dir="auto" style="vertical-align: inherit;">Confira</font>
@@ -414,7 +414,7 @@
                                 </div>
 
                                 <div class="booking-info-btns d-flex justify-content-end">
-                                    <a href="https://dreamsrent.dreamstechnologies.com/html/template/booking-detail.html"
+                                    <a href="#" 
                                         class="btn btn-secondary">
                                         <font dir="auto" style="vertical-align: inherit;">
                                             <font dir="auto" style="vertical-align: inherit;">Voltar para
@@ -423,7 +423,7 @@
                                     </a>
                                     <button class="btn btn-primary continue-book-btn" type="submit">
                                         <font dir="auto" style="vertical-align: inherit;">
-                                            <font dir="auto" style="vertical-align: inherit;">Pague $ 4.700 e faça
+                                            <font dir="auto" style="vertical-align: inherit;">Pague {{ formatKz($totalEstimate ?? $car->price) }} e faça
                                                 sua reserva</font>
                                         </font>
                                     </button>

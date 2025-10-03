@@ -80,12 +80,12 @@
                                                 <span><i class="bx bx-add-to-queue"></i></span>
                                                 <h5>Informações de Cobrança</h5>
                                             </div>
-                                            <div class="d-flex align-items-center">
+                                            <!-- <div class="d-flex align-items-center">
                                                 <h6>Cliente recorrente?</h6>
                                                 <a href="javascript:void(0);" class="btn btn-secondary ms-3"
                                                     data-bs-toggle="modal" data-bs-target="#sign_in_modal"><i
                                                         class="bx bx-user me-2"></i>Entrar</a>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <div class="booking-info-body" data-select2-id="8">
                                             <div class="row">
@@ -192,7 +192,7 @@
                                         </div>
                                     </div>
                                     <div class="booking-info-btns d-flex justify-content-end">
-                                        <a href="https://dreamsrent.dreamstechnologies.com/html/template/booking-addon.html"
+                                        <a href="{{ route('site.reservation.checkout')}}"
                                             class="btn btn-secondary">Voltar para Serviços Extras</a>
                                         <button class="btn btn-primary continue-book-btn" type="submit">Confirmar & Pagar
                                             Agora</button>
