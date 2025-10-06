@@ -1,4 +1,4 @@
-@extends('layout._site.main')
+@extends('site.reservation.layouts.main')
 @section('title', 'AngoCar - Ofertas')
 @section('content')
 
@@ -146,7 +146,7 @@
 						</div>
 						                   					   
                          <!--Paginação--> 
-						<div class="pagination">
+						<!-- <div class="pagination">
 						    <nav>
 							    <ul class="pagination mt-0">
 								    <li class="previtem">
@@ -178,7 +178,7 @@
 									</li>
 								</ul>
 							</nav>
-						</div>
+						</div> -->
 						<!--/Paginação-->						  
 
 				    </div>
