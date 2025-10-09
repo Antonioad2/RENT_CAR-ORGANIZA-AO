@@ -392,8 +392,8 @@
                                     <div class="fav-item">
                                         <div class="d-flex align-items-center gap-2">
                                             <span class="featured-text">{{ $car->brand->name ?? '' }}</span>
-                                            <span
-                                                class="availability">{{ $car->status == 'available' ? 'Disponível' : 'Indisponível' }}</span>
+                                                           <span
+                                                class="availability {{ $car->status == 'available' ? 'bg-success text-white' : 'bg-danger text-white' }} p-2.5 rounded">{{ $car->status == 'available' ? 'Disponível' : 'Reservado' }}</span>
                                         </div>
                                         <a href="javascript:void(0)" class="fav-icon">
                                             <i class="feather-heart"></i>
@@ -413,6 +413,8 @@
                                                     <i class="fas fa-star {{ $i < $car->rating ? 'filled' : '' }}"></i>
                                                 @endfor
                                                 <span>({{ $car->rating }}) {{ $car->reviews_count ?? 0 }} Reviews</span>
+
+                                                   
                                             </div>
                                         </div>
                                         <div>
