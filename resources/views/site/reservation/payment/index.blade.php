@@ -15,10 +15,10 @@
                     <nav aria-label="migalhas de pão" class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <!-- <li class="breadcrumb-item"><a>
-                                    <font dir="auto" style="vertical-align: inherit;">
-                                        <font dir="auto" style="vertical-align: inherit;">Lar</font>
-                                    </font>
-                                </a></li> -->
+                                        <font dir="auto" style="vertical-align: inherit;">
+                                            <font dir="auto" style="vertical-align: inherit;">Lar</font>
+                                        </font>
+                                    </a></li> -->
                             <li class="breadcrumb-item active" aria-current="page">
                                 <font dir="auto" style="vertical-align: inherit;">
                                     <font dir="auto" style="vertical-align: inherit;">Confira</font>
@@ -127,8 +127,6 @@
                     </div>
                 @endif
 
-
-
                 <div class="row">
 
                     <div class="col-lg-12">
@@ -155,48 +153,6 @@
                                                         método de pagamento</font>
                                                 </font>
                                             </h5>
-                                            {{-- <ul>
-                                                <li>
-                                                    <label class="payment_custom_check">
-                                                        <input type="radio" name="payment_type" checked="">
-                                                        <span class="payment_checkmark">
-                                                            <span class="checked-title"><img
-                                                                    src="{{ url('assets/user/img/icons/payment-1.svg')}}"
-                                                                    alt="Imagem"></span>
-                                                        </span>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <label class="payment_custom_check">
-                                                        <input type="radio" name="payment_type">
-                                                        <span class="payment_checkmark">
-                                                            <span class="checked-title"><img
-                                                                    src="{{ url('assets/user/img/icons/payment-2.svg')}}"
-                                                                    alt="Imagem"></span>
-                                                        </span>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <label class="payment_custom_check">
-                                                        <input type="radio" name="payment_type">
-                                                        <span class="payment_checkmark">
-                                                            <span class="checked-title"><img
-                                                                    src="{{ url('assets/user/img/icons/payment-3.svg')}}"
-                                                                    alt="Imagem"></span>
-                                                        </span>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <label class="payment_custom_check">
-                                                        <input type="radio" name="payment_type">
-                                                        <span class="payment_checkmark">
-                                                            <span class="checked-title"><img
-                                                                    src="{{ url('assets/user/img/icons/payment-4.svg')}}"
-                                                                    alt="Imagem"></span>
-                                                        </span>
-                                                    </label>
-                                                </li>
-                                            </ul> --}}
                                         </div>
                                         <div class="payment-method-types payments-cards-types">
                                             <div class="row">
@@ -228,32 +184,6 @@
                                                                 </span>
                                                             </label>
                                                         </li>
-                                                        {{-- <li>
-                                                            <label class="payment_custom_check">
-                                                                <input type="radio" name="payment_card"
-                                                                    id="credit_card">
-                                                                <span class="payment_checkmark">
-                                                                    <span class="checked-title"><img
-                                                                            src="{{ url('assets/user/img/dicovery.svg') }}"
-                                                                            alt="Imagem"></span>
-                                                                    <small>
-                                                                        <font dir="auto"
-                                                                            style="vertical-align: inherit;">
-                                                                            <font dir="auto"
-                                                                                style="vertical-align: inherit;">
-                                                                                Cartão de crédito</font>
-                                                                        </font><span>
-                                                                            <font dir="auto"
-                                                                                style="vertical-align: inherit;">
-                                                                                <font dir="auto"
-                                                                                    style="vertical-align: inherit;">
-                                                                                    654************12</font>
-                                                                            </font>
-                                                                        </span>
-                                                                    </small>
-                                                                </span>
-                                                            </label>
-                                                        </li> --}}
                                                         <li>
                                                             <label class="payment_custom_check">
                                                                 <input type="radio" name="payment_card"
@@ -414,8 +344,7 @@
                                 </div>
 
                                 <div class="booking-info-btns d-flex justify-content-end">
-                                    <a href="#" 
-                                        class="btn btn-secondary">
+                                    <a href="#" class="btn btn-secondary">
                                         <font dir="auto" style="vertical-align: inherit;">
                                             <font dir="auto" style="vertical-align: inherit;">Voltar para
                                                 informações de cobrança</font>
@@ -423,7 +352,8 @@
                                     </a>
                                     <button class="btn btn-primary continue-book-btn" type="submit">
                                         <font dir="auto" style="vertical-align: inherit;">
-                                            <font dir="auto" style="vertical-align: inherit;">Pague {{ formatKz($totalEstimate ?? $car->price) }} e faça
+                                            <font dir="auto" style="vertical-align: inherit;">Pague
+                                                {{ formatKz($totalEstimate ?? $car->price) }} e faça
                                                 sua reserva</font>
                                         </font>
                                     </button>
@@ -476,6 +406,5 @@
             });
         });
     </script>
-
 
 @endsection

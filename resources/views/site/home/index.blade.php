@@ -17,31 +17,31 @@
                                 <div class="customer-list">
                                     <div class="users-wrap">
                                         <!-- <ul class="users-list">
-                                            <li>
-                                                <img src="{{ url('assets/user/img/profiles/avatar-11.jpg') }}"
-                                                    class="img-fluid aos" alt="bannerimage">
-                                            </li>
-                                            <li>
-                                                <img src="{{ url('assets/user/img/profiles/avatar-15.jpg') }}"
-                                                    class="img-fluid aos" alt="bannerimage">
-                                            </li>
-                                            <li>
-                                                <img src="{{ url('assets/user/img/profiles/avatar-03.jpg') }}"
-                                                    class="img-fluid aos" alt="bannerimage">
-                                            </li>
-                                        </ul> -->
+                                                        <li>
+                                                            <img src="{{ url('assets/user/img/profiles/avatar-11.jpg') }}"
+                                                                class="img-fluid aos" alt="bannerimage">
+                                                        </li>
+                                                        <li>
+                                                            <img src="{{ url('assets/user/img/profiles/avatar-15.jpg') }}"
+                                                                class="img-fluid aos" alt="bannerimage">
+                                                        </li>
+                                                        <li>
+                                                            <img src="{{ url('assets/user/img/profiles/avatar-03.jpg') }}"
+                                                                class="img-fluid aos" alt="bannerimage">
+                                                        </li>
+                                                    </ul> -->
                                         <!-- <div class="customer-info">
-                                            <h4>6 mil + clientes</h4>
-                                            <p>utilizaram nossos serviços de aluguel </p>
-                                        </div> -->
+                                                        <h4>6 mil + clientes</h4>
+                                                        <p>utilizaram nossos serviços de aluguel </p>
+                                                    </div> -->
                                     </div>
                                     <div class="view-all d-flex align-items-center gap-3">
-                                        <a href="{{route('site.car-list')}}"
+                                        <a href="{{ route('site.car-list') }}"
                                             class="btn btn-primary d-inline-flex align-items-center">Alugue um Carro<i
                                                 class="bx bx-right-arrow-alt ms-1"></i></a>
                                         <!-- <a href="add-listing.html"
-                                            class="btn btn-secondary d-inline-flex align-items-center"><i
-                                                class="bx bxs-plus-circle me-1"></i>Adicione seu Carro</a> -->
+                                                        class="btn btn-secondary d-inline-flex align-items-center"><i
+                                                            class="bx bxs-plus-circle me-1"></i>Adicione seu Carro</a> -->
                                     </div>
                                 </div>
                             </div>
@@ -64,49 +64,55 @@
                     </div>
                 </div>
                 <div class="banner-search">
-    <form action="{{ route('site.car-list') }}" class="form-block d-flex align-items-center" method="GET">
-        @csrf
-        <div class="search-input">
-            <div class="input-block">
-                <label>Local de Retirada</label>
-                <div class="input-wrap">
-                    <input type="text" class="form-control" name="pickup_location" placeholder="Digite o local de retirada (ex: Belas, Cacuaco ou outro)" value="">
-                    <span class="input-icon"></span>
+                    <form action="{{ route('site.car-list') }}" class="form-block d-flex align-items-center" method="GET">
+                        @csrf
+                        <div class="search-input">
+                            <div class="input-block">
+                                <label>Local de Retirada</label>
+                                <div class="input-wrap">
+                                    <input type="text" class="form-control" name="pickup_location"
+                                        placeholder="Digite o local de retirada" value="">
+                                    <span class="input-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-input">
+                            <div class="input-block">
+                                <label>Local de Devolução</label>
+                                <div class="input-wrap">
+                                    <input type="text" class="form-control" name="return_location"
+                                        placeholder="Digite o local de devolução" value="">
+                                    <span class="input-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-input">
+                            <div class="input-block">
+                                <label>Data e Hora de Retirada</label>
+                                <div class="input-wrap">
+                                    <input type="text" class="form-control flatpickr-datetime" name="pickup_datetime"
+                                        value="2025-03-14 12:00">
+                                    <span class="input-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-input input-end">
+                            <div class="input-block">
+                                <label>Data e Hora de Devolução</label>
+                                <div class="input-wrap">
+                                    <input type="text" class="form-control flatpickr-datetime" name="dropoff_datetime"
+                                        value="2025-03-15 12:00">
+                                    <span class="input-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="customer-info">
+                            <button class="btn btn-primary" type="submit">
+                                <div style="color:#fffff">PESQUIZA O SEU CARRO</div>
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        </div>
-        <div class="search-input">
-            <div class="input-block">
-                <label>Local de Devolução</label>
-                <div class="input-wrap">
-                    <input type="text" class="form-control" name="return_location" placeholder="Digite o local de devolução (ex: Viana, Talatona ou outro)" value="">
-                    <span class="input-icon"></span>
-                </div>
-            </div>
-        </div>
-        <div class="search-input">
-            <div class="input-block">
-                <label>Data e Hora de Retirada</label>
-                <div class="input-wrap">
-                    <input type="text" class="form-control flatpickr-datetime" name="pickup_datetime" value="2025-03-14 12:00">
-                    <span class="input-icon"></span>
-                </div>
-            </div>
-        </div>
-        <div class="search-input input-end">
-            <div class="input-block">
-                <label>Data e Hora de Devolução</label>
-                <div class="input-wrap">
-                    <input type="text" class="form-control flatpickr-datetime" name="dropoff_datetime" value="2025-03-15 12:00">
-                    <span class="input-icon"></span>
-                </div>
-            </div>
-        </div>
-        <div class="customer-info">
-            <button class="btn btn-primary" type="submit"><div style="color:black" >PESQUIZA O SEU CARRO</div></button>
-        </div>
-    </form>
-</div>
             </div>
             <div class="banner-bgs">
                 <img src="{{ url('assets/user/img/bg/banner-bg-01.png') }}" class="bg-01 img-fluid" alt="img">
@@ -134,10 +140,12 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{route('site.car-list', ['type_car' => 'suv'])}}">Aventura</a></h6>
-                                            <p>{{$suvCount}}</p>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'suv']) }}">Aventura</a>
+                                            </h6>
+                                            <p>{{ $suvCount }}</p>
                                         </div>
-                                        <a href="{{route('site.car-list', ['type_car' => 'suv'])}}" class="link-icon"><i
+                                        <a href="{{ route('site.car-list', ['type_car' => 'suv']) }}" class="link-icon"><i
                                                 class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
@@ -153,11 +161,13 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{route('site.car-list', ['type_car' => 'sedan'])}}">Executivo</a></h6>
-                                            <p>{{$sedanCount}}</p>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'sedan']) }}">Executivo</a>
+                                            </h6>
+                                            <p>{{ $sedanCount }}</p>
                                         </div>
-                                        <a href="{{route('site.car-list', ['type_car' => 'sedan'])}}" class="link-icon"><i
-                                                class="bx bx-right-arrow-alt"></i></a>
+                                        <a href="{{ route('site.car-list', ['type_car' => 'sedan']) }}"
+                                            class="link-icon"><i class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-02.png') }}" alt="img"
@@ -172,11 +182,13 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{route('site.car-list', ['type_car' => 'sports_car'])}}">Esportivos</a></h6>
-                                            <p>{{$sports_carCount}}</p>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'sports_car']) }}">Esportivos</a>
+                                            </h6>
+                                            <p>{{ $sports_carCount }}</p>
                                         </div>
-                                        <a href="{{route('site.car-list', ['type_car' => 'sports_car'])}}" class="link-icon"><i
-                                                class="bx bx-right-arrow-alt"></i></a>
+                                        <a href="{{ route('site.car-list', ['type_car' => 'sports_car']) }}"
+                                            class="link-icon"><i class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-03.png') }}" alt="img"
@@ -191,11 +203,13 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{route('site.car-list', ['type_car' => 'minivan'])}}">Viagem</a></h6>
-                                            <p>{{$minivanCount}}</p>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'minivan']) }}">Viagem</a>
+                                            </h6>
+                                            <p>{{ $minivanCount }}</p>
                                         </div>
-                                        <a href="{{route('site.car-list', ['type_car' => 'minivan'])}}" class="link-icon"><i
-                                                class="bx bx-right-arrow-alt"></i></a>
+                                        <a href="{{ route('site.car-list', ['type_car' => 'minivan']) }}"
+                                            class="link-icon"><i class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-04.png') }}" alt="img"
@@ -210,11 +224,13 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{route('site.car-list',['type_car' => 'compact_suv'])}}">Familia</a></h6>
-                                            <p>{{$compact_suvCount}}</p>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'compact_suv']) }}">Familia</a>
+                                            </h6>
+                                            <p>{{ $compact_suvCount }}</p>
                                         </div>
-                                        <a href="{{route('site.car-list',['type_car' => 'compact_suv'])}}" class="link-icon"><i
-                                                class="bx bx-right-arrow-alt"></i></a>
+                                        <a href="{{ route('site.car-list', ['type_car' => 'compact_suv']) }}"
+                                            class="link-icon"><i class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-05.png') }}" alt="img"
@@ -229,11 +245,13 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{route('site.car-list',['type_car' => 'compact_suv'])}}">Urbano</a></h6>
-                                            <p>{{$compactCount}}</p>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'compact_suv']) }}">Urbano</a>
+                                            </h6>
+                                            <p>{{ $compactCount }}</p>
                                         </div>
-                                        <a href="{{route('site.car-list',['type_car' => 'compact_suv'])}}" class="link-icon"><i
-                                                class="bx bx-right-arrow-alt"></i></a>
+                                        <a href="{{ route('site.car-list', ['type_car' => 'compact_suv']) }}"
+                                            class="link-icon"><i class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-06.png') }}" alt="img"
@@ -392,7 +410,7 @@
                                     <div class="fav-item">
                                         <div class="d-flex align-items-center gap-2">
                                             <span class="featured-text">{{ $car->brand->name ?? '' }}</span>
-                                                           <span
+                                            <span
                                                 class="availability {{ $car->status == 'available' ? 'bg-success text-white' : 'bg-danger text-white' }} p-2.5 rounded">{{ $car->status == 'available' ? 'Disponível' : 'Reservado' }}</span>
                                         </div>
                                         <a href="javascript:void(0)" class="fav-icon">
@@ -406,7 +424,8 @@
                                     <div class="listing-features d-flex align-items-center justify-content-between">
                                         <div class="list-rating">
                                             <h3 class="listing-title">
-                                                <a href="{{ route('car.details', $car->id) }}">{{ $car->brand->name }} {{$car->models->name}}</a>
+                                                <a href="{{ route('car.details', $car->id) }}">{{ $car->brand->name }}
+                                                    {{ $car->models->name }}</a>
                                             </h3>
                                             <div class="list-rating">
                                                 @for ($i = 0; $i < 5; $i++)
@@ -414,11 +433,11 @@
                                                 @endfor
                                                 <span>({{ $car->rating }}) {{ $car->reviews_count ?? 0 }} Reviews</span>
 
-                                                   
+
                                             </div>
                                         </div>
                                         <div>
-                                            <h4 class="price">{{formatKz($car->price)}}  <span>/ Dia</span></h4>
+                                            <h4 class="price">{{ formatKz($car->price) }} <span>/ Dia</span></h4>
                                         </div>
                                     </div>
                                     <div class="listing-details-group">
@@ -453,7 +472,8 @@
 
 
                 <div class="view-all-btn text-center aos" data-aos="fade-down">
-                    <a href="{{ route('site.car-list')}}" class="btn btn-secondary d-inline-flex align-items-center">Ver Mais
+                    <a href="{{ route('site.car-list') }}" class="btn btn-secondary d-inline-flex align-items-center">Ver
+                        Mais
                         Carros<i class="bx bx-right-arrow-alt ms-1"></i></a>
                 </div>
 
@@ -607,7 +627,7 @@
                                 <div class="amount-icon">
                                     <span class="day-amt">
                                         <p>Apartir de</p>
-                                        <h6>{{formatKz($car->price)}}  <span> /dia</span></h6>
+                                        <h6>{{ formatKz($car->price) }} <span> /dia</span></h6>
                                     </span>
                                 </div>
                             </div>
@@ -615,14 +635,14 @@
                                 <span><img src="{{ url('assets/user/img/icons/spec-01.svg') }}"
                                         alt="img">{{ $car->transmission }}</span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-02.svg') }}"
-                                        alt="img">{{ $car->manufacture_date}} </span>
+                                        alt="img">{{ $car->manufacture_date }} </span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-03.svg') }}"
-                                        alt="img">{{ $car->mileage}} </span>
+                                        alt="img">{{ $car->mileage }} </span>
                                 <!--<span><img src="{{ url('assets/user/img/icons/spec-04.svg') }}" alt="img">AC</span>-->
                                 <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}"
                                         alt="img">{{ $car->fuel->name ?? 'Combustível' }}</span>
                                 <!-- <span><img src="{{ url('assets/user/img/icons/car-parts-06.svg') }}"
-                                        alt="img">{{ $car->number_of_seats }} Pessoas</span> -->
+                                                    alt="img">{{ $car->number_of_seats }} Pessoas</span> -->
                             </div>
                             <a href="{{ route('car.details', $car->id) }}" class="btn btn-primary">Alugue Agora</a>
                         </div>
@@ -1238,4 +1258,12 @@
         </svg>
     </div>
     <!-- scrollToTop end -->
+
+
+    <style>
+        .input-wrap input::placeholder {
+            color: #ffffff;
+            font-size: 14px
+        }
+    </style>
 @endsection

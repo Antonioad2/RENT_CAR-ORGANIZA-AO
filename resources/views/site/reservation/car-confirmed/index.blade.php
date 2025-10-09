@@ -77,8 +77,10 @@
                         </div>
                         <div class="book-info">
                             <h6>{{ $reservation->car->name }}</h6>
-                            <p><i class="feather-map-pin"></i> Localização de Entrega: {{ $reservation->pickup_location }}</p>
-                            <p><i class="feather-map-pin"></i> Localização de Retorno: {{ $reservation->return_location }}</p>
+                            <p><i class="feather-map-pin"></i> Localização de Entrega: {{ $reservation->pickup_location }}
+                            </p>
+                            <p><i class="feather-map-pin"></i> Localização de Retorno: {{ $reservation->return_location }}
+                            </p>
                         </div>
                     </div>
                     <div class="book-amount">
@@ -167,11 +169,11 @@
                                         <span style="font-size: 40px; color: #132538ff; padding-right: 10px;">
                                             <i class="fa-solid fa-user-tie fa-2x"></i>
                                         </span>
-                                        
+
                                         <div class="driver-name">
                                             <h6>{{ $reservation->driver->full_name }}</h6>
                                             <ul>
-                                                
+
                                                 <li>Preço: {{ formatKz($reservation->driver->daily_price) }}/dia
                                                 </li>
                                             </ul>
@@ -246,12 +248,12 @@
                 <a href="{{ route('reservation.pdf', ['id' => $reservation->id]) }}" class="btn btn-secondary">Imprimir
                     Reserva</a>
 
-                 
-                          <a href="{{ route('home') }}" class="btn btn-secondary" style="background-color: #d66a18ff;">
-                            Voltar para a Página Inicial
-                        </a>
-                    </div>
+
+                <a href="{{ route('home') }}" class="btn btn-secondary" style="background-color: #ffa633 !important; border:1px solid #ffa633">
+                    Voltar para a Página Inicial
+                </a>
             </div>
         </div>
+    </div>
     </div>
 @endsection
