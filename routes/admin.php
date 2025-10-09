@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Admin\CardController;
                    
 
 
@@ -124,6 +125,20 @@ Route::prefix('/admin/clients')->name('clients.')->group(function () {
     Route::get('clientEdit/{client}/edit', [ClientController::class, 'edit'])->name('edit');
     Route::put('/{client}', [ClientController::class, 'update'])->name('update');
     Route::delete('/{client}', [ClientController::class, 'destroy'])->name('destroy');
+});
+
+/*-------------------------------------------------------
+                    card routes
+-------------------------------------------------------*/
+
+Route::prefix('/admin/cards')->name('cards.')->group(function () {
+    Route::get('/', [CardController::class, 'index'])->name('index');
+    Route::get('/create', [CardController::class, 'create'])->name('create');
+    Route::post('/', [CardController::class, 'store'])->name('store');
+    Route::get('clientView/{card}', [CardController::class, 'show'])->name('show');
+    Route::get('cardEdit/{card}/edit', [CardController::class, 'edit'])->name('edit');
+    Route::put('/{card}', [CardController::class, 'update'])->name('update');
+    Route::delete('/{card}', [CardController::class, 'destroy'])->name('destroy');
 });
 
 /*-------------------------------------------------------

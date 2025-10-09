@@ -129,6 +129,19 @@
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('clients.create')}}"><i class="feather-plus"></i>Adicionar Outro</a></li>
                     </ul>
                 </li>
+                
+                {{--Lista de Cartões--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="fa-regular fa-credit-card"></i></span>
+                        <span class="nxl-mtext">Cartões</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('cards.index')}}"><i class="feather-eye"></i>Ver Mais</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('cards.create')}}"><i class="feather-plus"></i>Adicionar Outro</a></li>
+                    </ul>
+                </li>
+
                 {{--Lista de Usuários--}}
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
