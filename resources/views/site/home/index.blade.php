@@ -744,29 +744,36 @@
 
         <!-- JavaScript for Modal -->
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const reservedCars = document.querySelectorAll('.reserved-car');
-                reservedCars.forEach(car => {
-                    car.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        e.stopPropagation(); // Prevent event bubbling
-                        const reservationDates = this.getAttribute('data-reservation-dates');
-                        const reservationDatesElement = document.getElementById('reservationDates');
-                        reservationDatesElement.textContent = reservationDates;
-                        const modalElement = document.getElementById('reservedCarModal');
-                        const modal = new bootstrap.Modal(modalElement, {
-                            backdrop: true, // Allow closing on backdrop click
-                            keyboard: true // Allow closing with ESC key
-                        });
-                        modal.show();
+           document.addEventListener('DOMContentLoaded', function () {
+    const reservedCars = document.querySelectorAll('.reserved-car');
+    const modalElement = document.getElementById('reservedCarModal');
+    const reservationDatesElement = document.getElementById('reservationDates');
+    
+    // Instanciar o modal apenas uma vez
+    const modal = new bootstrap.Modal(modalElement, {
+        backdrop: true,
+        keyboard: true
+    });
 
-                        // Clear dates when modal closes
-                        modalElement.addEventListener('hidden.bs.modal', function () {
-                            reservationDatesElement.textContent = '';
-                        }, { once: true }); // Ensure listener is removed after firing
-                    });
-                });
-            });
+    reservedCars.forEach(car => {
+        car.addEventListener('click', function (e) {
+            e.preventDefault(); // Evita comportamento padrão do link
+            const reservationDates = this.getAttribute('data-reservation-dates');
+            reservationDatesElement.textContent = reservationDates;
+            modal.show(); // Exibe o modal
+        });
+    });
+
+    // Limpar o conteúdo do modal ao fechar
+    modalElement.addEventListener('hidden.bs.modal', function () {
+        reservationDatesElement.textContent = ''; // Limpa as datas
+        document.body.classList.remove('modal-open'); // Remove classe que bloqueia interação
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.remove(); // Remove manualmente o backdrop, se presente
+        }
+    });
+});
         </script>
 
         <!-- scrollToTop start -->
