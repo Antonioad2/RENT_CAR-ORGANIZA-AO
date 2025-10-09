@@ -1,5 +1,5 @@
-@extends('layout._admin.main')
-@section('content-admin')
+@extends('_admin.reports.cars.layout.main')
+@section('container-admin')
     <!--! ================================================================ !-->
     <!--! [Start] Main Content !-->
     <!--! ================================================================ !-->
@@ -99,10 +99,10 @@
                                             <i class="feather-dollar-sign"></i>
                                             <span>Active Deals</span>
                                         </div>
-                                        <h4 class="fw-bolder mb-3">$<span class="counter">{{$totalReserves}}</span> KZ</h4>
-                                        <p class="fs-12 text-muted mb-0">vs last month: <span class="fw-semibold text-dark">$4,563 USD</span></p>
+                                        <h4 class="fw-bolder mb-3"><span class="counter">{{$totalReserves}}</span> KZ</h4>
+                                       <!--  <p class="fs-12 text-muted mb-0">vs last month: <span class="fw-semibold text-dark">$4,563 USD</span></p> -->
                                     </div>
-                                    <a href="javascript:void(0);" class="badge bg-soft-success text-success">+ 23.65%</a>
+                                   <!--  <a href="javascript:void(0);" class="badge bg-soft-success text-success">+ 23.65%</a> -->
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,5 @@
-@extends('layout._admin.main')
-@section('content-admin')
+@extends('_admin.reports.cars.layout.main')
+@section('container-admin')
     <!--! ================================================================ !-->
     <!--! [Start] Main Content !-->
     <!--! ================================================================ !-->
