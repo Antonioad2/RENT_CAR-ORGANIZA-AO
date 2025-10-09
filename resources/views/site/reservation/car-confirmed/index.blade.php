@@ -245,6 +245,12 @@
             <div class="print-btn text-center">
                 <a href="{{ route('reservation.pdf', ['id' => $reservation->id]) }}" class="btn btn-secondary">Imprimir
                     Reserva</a>
+
+                 
+                          <a href="{{ route('home') }}" class="btn btn-secondary" style="background-color: #d66a18ff;">
+                            Voltar para a Página Inicial
+                        </a>
+                    </div>
             </div>
         </div>
     </div>

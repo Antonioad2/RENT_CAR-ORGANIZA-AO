@@ -301,8 +301,9 @@
                         <a href="{{ route('reservation.pdf', ['id' => $reservation->id]) }}" class="btn btn-secondary">
                             Imprimir Reserva
                         </a>
+                       
                     </div>
-
+                       
                 </div>
             </div>
             <!-- /Sucesso na Reserva -->

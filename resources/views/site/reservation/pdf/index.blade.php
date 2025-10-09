@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <style>
         @page {
-            margin: 40px 30px;
+            margin: 50px 35px;
         }
 
         body {
@@ -12,6 +12,25 @@
             font-size: 13px;
             color: #111; /* Preto mais forte */
             line-height: 1.5;
+            background-image: url('{{ public_path("assets/user/img/ango-cars-2.png") }}');
+            background-size: 50%; /* Reduced background image size */
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: rgba(255, 255, 255, 0.9); /* White overlay for readability */
+            position: relative;
+        }
+
+        /* Ensure content is readable over the background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent white layer */
+            z-index: -1;
         }
 
         header {
@@ -21,10 +40,12 @@
             border-bottom: 3px solid #f7c600; /* Amarelo forte */
             padding-bottom: 10px;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         header img {
-            height: 55px;
+            height: 60px;
         }
 
         h2 {
@@ -40,6 +61,8 @@
 
         .section {
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         /* Mensagem de sucesso */
@@ -51,6 +74,8 @@
             border-radius: 6px;
             margin-bottom: 20px;
             font-weight: bold;
+            position: relative;
+            z-index: 1;
         }
 
         table {
@@ -58,6 +83,8 @@
             border-collapse: collapse;
             margin-top: 8px;
             font-size: 13px;
+            position: relative;
+            z-index: 1;
         }
 
         td, th {
@@ -88,6 +115,8 @@
             margin-top: 30px;
             border-top: 1px solid #f7c600;
             padding-top: 10px;
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
@@ -142,8 +171,6 @@
                 <tr>
                     <td>{{ \Carbon\Carbon::parse($reservation->start_date)->format('d/m/Y ') }}</td>
                     <td>{{ \Carbon\Carbon::parse($reservation->end_date)->format('d/m/Y ') }} </td>
-                    
-                    
                 </tr>
             </tbody>
         </table>

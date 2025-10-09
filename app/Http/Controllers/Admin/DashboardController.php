@@ -62,7 +62,8 @@ class DashboardController extends Controller
         //total de motoristas
         $totalDrivers = Driver::count();
         //motorista para reservas
-        $driversReserved = Driver::where('status','reserved')->count();
+        $driversReserved = Reserve::whereNotNull('driver_id')->distinct('driver_id')->count('driver_id');
+        
 
         return view('_admin.reports.drivers.index', compact('driversMale','driversFemale','totalDrivers','driversReserved'));
     }

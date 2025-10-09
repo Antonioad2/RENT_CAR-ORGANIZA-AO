@@ -30,8 +30,9 @@ class HomeController extends Controller
         $sports_coupeCount = Car::where('type_car', 'sports_coupe')->where('status', 'available')->count();
 
         // Fetch all cars with their related data (brand, models, color, fuel)
-        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available')->get(); // 🔹 só traz disponíveis;
+        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->whereIn('status', ['available', 'reserved'])->get(); // 🔹 só traz disponíveis;
 
+        
         // Pass the cars to the view
         return view('site.home.index', compact('cars','sedanCount','suvCount','compactCount','station_wagonCount','sports_carCount','minivanCount','compact_suvCount','coupeCount','sports_coupeCount')); // Add 'cars' to compact()
     }
