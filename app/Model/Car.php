@@ -64,6 +64,6 @@ class Car extends Model
     }
     public function reserves()
     {
-        return $this->hasMany(Reserve::class);
+        return $this->hasMany(Reserve::class , 'car_id');
     }
 }

@@ -28,6 +28,7 @@ class Reserve extends Model
         'resources' => 'array', // Laravel converte automaticamente JSON <-> array
     ];
 
+    
     public function client()
     {
         return $this->belongsTo(Client::class);
@@ -35,7 +36,7 @@ class Reserve extends Model
 
     public function car()
     {
-        return $this->belongsTo(Car::class);
+        return $this->belongsTo(Car::class, 'car_id');
     }
 
     public function driver()
