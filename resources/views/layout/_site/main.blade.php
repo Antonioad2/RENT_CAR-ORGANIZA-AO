@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="{{ url('assets/user/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('assets/user/css/status.css') }}">
 
+    
     <!-- Google tag (gtag.js) -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZP85RY5D8"></script>
