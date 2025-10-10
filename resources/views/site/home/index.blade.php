@@ -1,9 +1,7 @@
-
 @extends('layout._site.main')
 @section('title', 'AngoCar')
 @section('content')
     <div class="main-wrapper home-three">
-
         <!-- Banner -->
         <section class="banner-section-four">
             <div class="container">
@@ -19,7 +17,7 @@
                                     <div class="users-wrap">
                                         <div class="view-all d-flex align-items-center gap-3">
                                             <a href="{{ route('site.car-list') }}"
-                                               class="btn btn-primary d-inline-flex align-items-center">Alugue um Carro<i
+                                                class="btn btn-primary d-inline-flex align-items-center">Alugue um Carro<i
                                                     class="bx bx-right-arrow-alt ms-1"></i></a>
                                         </div>
                                     </div>
@@ -37,7 +35,7 @@
                                     </div>
                                     <span class="rent-tag"><i class="bx bxs-circle"></i> Disponível para Aluguel</span>
                                     <img src="{{ url('assets/user/img/banner/banner.png') }}" class="img-fluid"
-                                         alt="img">
+                                        alt="img">
                                 </div>
                             </div>
                         </div>
@@ -51,7 +49,8 @@
                                 <label>Local de Retirada</label>
                                 <div class="input-wrap">
                                     <input type="text" class="form-control" name="pickup_location"
-                                           placeholder="Digite o local de retirada (ex: Belas, Cacuaco ou outro)" value="">
+                                        placeholder="Digite o local de retirada"
+                                        value="">
                                     <span class="input-icon"></span>
                                 </div>
                             </div>
@@ -61,7 +60,8 @@
                                 <label>Local de Devolução</label>
                                 <div class="input-wrap">
                                     <input type="text" class="form-control" name="return_location"
-                                           placeholder="Digite o local de devolução (ex: Viana, Talatona ou outro)" value="">
+                                        placeholder="Digite o local de devolução"
+                                        value="">
                                     <span class="input-icon"></span>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                 <label>Data e Hora de Retirada</label>
                                 <div class="input-wrap">
                                     <input type="text" class="form-control flatpickr-datetime" name="pickup_datetime"
-                                           value="2025-03-14 12:00">
+                                        value="2025-03-14 12:00">
                                     <span class="input-icon"></span>
                                 </div>
                             </div>
@@ -81,13 +81,15 @@
                                 <label>Data e Hora de Devolução</label>
                                 <div class="input-wrap">
                                     <input type="text" class="form-control flatpickr-datetime" name="dropoff_datetime"
-                                           value="2025-03-15 12:00">
+                                        value="2025-03-15 12:00">
                                     <span class="input-icon"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="customer-info">
-                            <button class="btn btn-primary" type="submit"><div style="color:black">PESQUIZA O SEU CARRO</div></button>
+                            <button class="btn btn-primary" type="submit">
+                                <div>PESQUIZA O SEU CARRO</div>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -112,7 +114,9 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{ route('site.car-list', ['type_car' => 'suv']) }}">Aventura</a></h6>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'suv']) }}">Aventura</a>
+                                            </h6>
                                             <p>{{ $suvCount }}</p>
                                         </div>
                                         <a href="{{ route('site.car-list', ['type_car' => 'suv']) }}" class="link-icon"><i
@@ -120,7 +124,7 @@
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-01.png') }}" alt="img"
-                                             class="img-fluid">
+                                            class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -128,15 +132,17 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{ route('site.car-list', ['type_car' => 'sedan']) }}">Executivo</a></h6>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'sedan']) }}">Executivo</a>
+                                            </h6>
                                             <p>{{ $sedanCount }}</p>
                                         </div>
-                                        <a href="{{ route('site.car-list', ['type_car' => 'sedan']) }}" class="link-icon"><i
-                                                class="bx bx-right-arrow-alt"></i></a>
+                                        <a href="{{ route('site.car-list', ['type_car' => 'sedan']) }}"
+                                            class="link-icon"><i class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-02.png') }}" alt="img"
-                                             class="img-fluid">
+                                            class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -144,15 +150,17 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{ route('site.car-list', ['type_car' => 'sports_car']) }}">Esportivos</a></h6>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'sports_car']) }}">Esportivos</a>
+                                            </h6>
                                             <p>{{ $sports_carCount }}</p>
                                         </div>
-                                        <a href="{{ route('site.car-list', ['type_car' => 'sports_car']) }}" class="link-icon"><i
-                                                class="bx bx-right-arrow-alt"></i></a>
+                                        <a href="{{ route('site.car-list', ['type_car' => 'sports_car']) }}"
+                                            class="link-icon"><i class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-03.png') }}" alt="img"
-                                             class="img-fluid">
+                                            class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -160,15 +168,17 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{ route('site.car-list', ['type_car' => 'minivan']) }}">Viagem</a></h6>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'minivan']) }}">Viagem</a>
+                                            </h6>
                                             <p>{{ $minivanCount }}</p>
                                         </div>
-                                        <a href="{{ route('site.car-list', ['type_car' => 'minivan']) }}" class="link-icon"><i
-                                                class="bx bx-right-arrow-alt"></i></a>
+                                        <a href="{{ route('site.car-list', ['type_car' => 'minivan']) }}"
+                                            class="link-icon"><i class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-04.png') }}" alt="img"
-                                             class="img-fluid">
+                                            class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -176,15 +186,17 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{ route('site.car-list', ['type_car' => 'compact_suv']) }}">Familia</a></h6>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'compact_suv']) }}">Familia</a>
+                                            </h6>
                                             <p>{{ $compact_suvCount }}</p>
                                         </div>
-                                        <a href="{{ route('site.car-list', ['type_car' => 'compact_suv']) }}" class="link-icon"><i
-                                                class="bx bx-right-arrow-alt"></i></a>
+                                        <a href="{{ route('site.car-list', ['type_car' => 'compact_suv']) }}"
+                                            class="link-icon"><i class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-05.png') }}" alt="img"
-                                             class="img-fluid">
+                                            class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -192,15 +204,17 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="{{ route('site.car-list', ['type_car' => 'compact']) }}">Urbano</a></h6>
+                                            <h6 class="title"><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'compact']) }}">Urbano</a>
+                                            </h6>
                                             <p>{{ $compactCount }}</p>
                                         </div>
-                                        <a href="{{ route('site.car-list', ['type_car' => 'compact']) }}" class="link-icon"><i
-                                                class="bx bx-right-arrow-alt"></i></a>
+                                        <a href="{{ route('site.car-list', ['type_car' => 'compact']) }}"
+                                            class="link-icon"><i class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
                                         <img src="{{ url('assets/user/img/category/category-06.png') }}" alt="img"
-                                             class="img-fluid">
+                                            class="img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -286,7 +300,8 @@
                                     </span>
                                     <div>
                                         <h6 class="mb-1">Suporte ao Cliente</h6>
-                                        <p>Atendimento dedicado e disponível para ajudar em todas as etapas do seu aluguel.</p>
+                                        <p>Atendimento dedicado e disponível para ajudar em todas as etapas do seu aluguel.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -322,15 +337,15 @@
                                 <div class="listing-img">
                                     @if ($car->status == 'available')
                                         <a href="{{ route('car.details', $car->id) }}">
-                                            <img src="{{ url('Uploads/car/car_images/' . $car->image) }}" class="img-fluid"
-                                                 alt="{{ $car->brand->name ?? 'Carro' }}">
+                                            <img src="{{ url('Uploads/car/car_images/' . $car->image) }}"
+                                                class="img-fluid" alt="{{ $car->brand->name ?? 'Carro' }}">
                                         </a>
                                     @else
                                         <a href="javascript:void(0);" class="reserved-car"
-                                           data-car-id="{{ $car->id }}"
-                                           data-reservation-dates="{{ $car->reserves && $car->reserves->where('status', 'in_progress')->isNotEmpty() ? \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->start_date)->format('d/m/Y') . ' - ' . \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->end_date)->format('d/m/Y') : 'N/A' }}">
-                                            <img src="{{ url('Uploads/car/car_images/' . $car->image) }}" class="img-fluid"
-                                                 alt="{{ $car->brand->name ?? 'Carro' }}">
+                                            data-car-id="{{ $car->id }}"
+                                            data-reservation-dates="{{ $car->reserves && $car->reserves->where('status', 'in_progress')->isNotEmpty() ? \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->start_date)->format('d/m/Y') . ' - ' . \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->end_date)->format('d/m/Y') : 'N/A' }}">
+                                            <img src="{{ url('Uploads/car/car_images/' . $car->image) }}"
+                                                class="img-fluid" alt="{{ $car->brand->name ?? 'Carro' }}">
                                         </a>
                                     @endif
                                     <div class="fav-item">
@@ -344,25 +359,29 @@
                                         </a>
                                     </div>
                                     <!-- <span class="location"><i
-                                            class="bx bx-map me-1"></i>{{ $car->location ?? 'Localização' }}</span> -->
+                                                class="bx bx-map me-1"></i>{{ $car->location ?? 'Localização' }}</span> -->
                                 </div>
                                 <div class="listing-content">
                                     <div class="listing-features d-flex align-items-center justify-content-between">
                                         <div class="list-rating">
                                             <h3 class="listing-title">
                                                 @if ($car->status == 'available')
-                                                    <a href="{{ route('car.details', $car->id) }}">{{ $car->brand->name }} {{ $car->models->name }}</a>
+                                                    <a href="{{ route('car.details', $car->id) }}">{{ $car->brand->name }}
+                                                        {{ $car->models->name }}</a>
                                                 @else
                                                     <a href="javascript:void(0);" class="reserved-car"
-                                                       data-car-id="{{ $car->id }}"
-                                                       data-reservation-dates="{{ $car->reserves && $car->reserves->where('status', 'in_progress')->isNotEmpty() ? \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->start_date)->format('d/m/Y') . ' - ' . \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->end_date)->format('d/m/Y') : 'N/A' }}">{{ $car->brand->name }} {{ $car->models->name }}</a>
+                                                        data-car-id="{{ $car->id }}"
+                                                        data-reservation-dates="{{ $car->reserves && $car->reserves->where('status', 'in_progress')->isNotEmpty() ? \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->start_date)->format('d/m/Y') . ' - ' . \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->end_date)->format('d/m/Y') : 'N/A' }}">{{ $car->brand->name }}
+                                                        {{ $car->models->name }}</a>
                                                 @endif
                                             </h3>
                                             <div class="list-rating">
                                                 @for ($i = 0; $i < 5; $i++)
-                                                    <i class="fas fa-star {{ $i < ($car->rating ?? 0) ? 'filled' : '' }}"></i>
+                                                    <i
+                                                        class="fas fa-star {{ $i < ($car->rating ?? 0) ? 'filled' : '' }}"></i>
                                                 @endfor
-                                                <span>({{ $car->rating ?? 0 }}) {{ $car->reviews_count ?? 0 }} Reviews</span>
+                                                <span>({{ $car->rating ?? 0 }}) {{ $car->reviews_count ?? 0 }}
+                                                    Reviews</span>
                                             </div>
                                         </div>
                                         <div>
@@ -373,22 +392,22 @@
                                         <ul>
                                             <li>
                                                 <img src="{{ url('assets/user/img/icons/car-parts-01.svg') }}"
-                                                     alt="Transmissão">
+                                                    alt="Transmissão">
                                                 <p>{{ $car->transmission }}</p>
                                             </li>
                                             <li>
                                                 <img src="{{ url('assets/user/img/icons/car-parts-02.svg') }}"
-                                                     alt="Quilometragem">
+                                                    alt="Quilometragem">
                                                 <p>{{ $car->mileage }} KM</p>
                                             </li>
                                             <li>
                                                 <img src="{{ url('assets/user/img/icons/car-parts-03.svg') }}"
-                                                     alt="Combustível">
+                                                    alt="Combustível">
                                                 <p>{{ $car->fuel->name ?? 'Desconhecido' }}</p>
                                             </li>
                                             <li>
                                                 <img src="{{ url('assets/user/img/icons/car-parts-05.svg') }}"
-                                                     alt="Ano">
+                                                    alt="Ano">
                                                 <p>{{ $car->manufacture_date ?? 'N/A' }}</p>
                                             </li>
                                         </ul>
@@ -399,7 +418,8 @@
                     @endforeach
                 </div>
                 <div class="view-all-btn text-center aos" data-aos="fade-down">
-                    <a href="{{ route('site.car-list') }}" class="btn btn-secondary d-inline-flex align-items-center">Ver Mais
+                    <a href="{{ route('site.car-list') }}" class="btn btn-secondary d-inline-flex align-items-center">Ver
+                        Mais
                         Carros<i class="bx bx-right-arrow-alt ms-1"></i></a>
                 </div>
             </div>
@@ -420,7 +440,7 @@
                             <h2 class="display-1">{{ strtoupper($car->models->name ?? 'Modelo') }}</h2>
                             <div class="car-img">
                                 <img src="{{ url('Uploads/car/car_images/' . $car->image) }}" alt="img"
-                                     class="img-fluid">
+                                    class="img-fluid">
                                 <div class="amount-icon">
                                     <span class="day-amt">
                                         <p>Apartir de</p>
@@ -430,20 +450,21 @@
                             </div>
                             <div class="spec-list">
                                 <span><img src="{{ url('assets/user/img/icons/spec-01.svg') }}"
-                                           alt="img">{{ $car->transmission }}</span>
+                                        alt="img">{{ $car->transmission }}</span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-02.svg') }}"
-                                           alt="img">{{ $car->manufacture_date }}</span>
+                                        alt="img">{{ $car->manufacture_date }}</span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-03.svg') }}"
-                                           alt="img">{{ $car->mileage }}</span>
+                                        alt="img">{{ $car->mileage }}</span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}"
-                                           alt="img">{{ $car->fuel->name ?? 'Combustível' }}</span>
+                                        alt="img">{{ $car->fuel->name ?? 'Combustível' }}</span>
                             </div>
                             @if ($car->status == 'available')
                                 <a href="{{ route('car.details', $car->id) }}" class="btn btn-primary">Alugue Agora</a>
                             @else
                                 <a href="javascript:void(0);" class="btn btn-primary reserved-car"
-                                   data-car-id="{{ $car->id }}"
-                                   data-reservation-dates="{{ $car->reserves && $car->reserves->where('status', 'in_progress')->isNotEmpty() ? \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->start_date)->format('d/m/Y') . ' - ' . \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->end_date)->format('d/m/Y') : 'N/A' }}">Alugue Agora</a>
+                                    data-car-id="{{ $car->id }}"
+                                    data-reservation-dates="{{ $car->reserves && $car->reserves->where('status', 'in_progress')->isNotEmpty() ? \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->start_date)->format('d/m/Y') . ' - ' . \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->end_date)->format('d/m/Y') : 'N/A' }}">Alugue
+                                    Agora</a>
                             @endif
                         </div>
                     @endforeach
@@ -461,7 +482,7 @@
                             <img src="{{ url('assets/user/img/about/rent-car.png') }}" alt="img" class="img-fluid">
                             <div class="grid-img">
                                 <img src="{{ url('assets/user/img/about/car-grid.png') }}" alt="img"
-                                     class="img-fluid">
+                                    class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -550,7 +571,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                                        data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
                                         Quantos anos eu preciso ter para alugar um carro?
                                     </button>
                                 </h2>
@@ -564,7 +585,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#faqTwo" aria-expanded="true" aria-controls="faqTwo">
+                                        data-bs-target="#faqTwo" aria-expanded="true" aria-controls="faqTwo">
                                         Quais documentos eu preciso para alugar um carro?
                                     </button>
                                 </h2>
@@ -578,12 +599,12 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#faqThree" aria-expanded="true" aria-controls="faqThree">
+                                        data-bs-target="#faqThree" aria-expanded="true" aria-controls="faqThree">
                                         Que tipos de veículos estão disponíveis para alugar?
                                     </button>
                                 </h2>
                                 <div id="faqThree" class="accordion-collapse collapse show"
-                                     data-bs-parent="#faqAccordion">
+                                    data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
                                         <p>Você pode explorar nossa seleção online ou entrar em contato conosco para obter
                                             ajuda na escolha do veículo ideal para você.</p>
@@ -593,7 +614,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#faqFour" aria-expanded="true" aria-controls="faqFour">
+                                        data-bs-target="#faqFour" aria-expanded="true" aria-controls="faqFour">
                                         Posso alugar um carro com um cartão de débito?
                                     </button>
                                 </h2>
@@ -607,7 +628,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#faqFive" aria-expanded="true" aria-controls="faqFive">
+                                        data-bs-target="#faqFive" aria-expanded="true" aria-controls="faqFive">
                                         Qual é a sua política de combustível?
                                     </button>
                                 </h2>
@@ -621,7 +642,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#faqSix" aria-expanded="true" aria-controls="faqSix">
+                                        data-bs-target="#faqSix" aria-expanded="true" aria-controls="faqSix">
                                         Posso adicionar motoristas adicionais ao meu contrato de aluguel?
                                     </button>
                                 </h2>
@@ -647,7 +668,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                                data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
                                 Ver Todos os Carros e Categorias
                             </button>
                         </h2>
@@ -656,62 +677,111 @@
                                 <div class="row row-gap-3">
                                     <div class="col-lg-2 col-md-4 col-sm-6">
                                         <ul class="category-list">
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'coupe']) }}">Coupé</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'convertible']) }}">Conversível</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'hatchback']) }}">Hatchback</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'suv']) }}">SUV (Utilitário Esportivo)</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'minivan']) }}">Minivan</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'truck']) }}">Camião</a></li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'coupe']) }}">Coupé</a>
+                                            </li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'convertible']) }}">Conversível</a>
+                                            </li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'hatchback']) }}">Hatchback</a>
+                                            </li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'suv']) }}">SUV
+                                                    (Utilitário Esportivo)</a></li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'minivan']) }}">Minivan</a>
+                                            </li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'truck']) }}">Camião</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-sm-6">
                                         <ul class="category-list">
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'sports_car']) }}">Carro Esportivo</a></li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'sports_car']) }}">Carro
+                                                    Esportivo</a></li>
                                             <li><a href="{{ route('site.car-list', ['type_car' => 'suv']) }}">SUV</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'station_wagon']) }}">Wagon (Perua)</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'crossover']) }}">Crossover</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'electric']) }}">Veículo Elétrico</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'jeep']) }}">Jeep</a></li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'station_wagon']) }}">Wagon
+                                                    (Perua)</a></li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'crossover']) }}">Crossover</a>
+                                            </li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'electric']) }}">Veículo
+                                                    Elétrico</a></li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'jeep']) }}">Jeep</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-sm-6">
                                         <ul class="category-list">
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'c1_segment']) }}">Carros Segmento C1</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'compact']) }}">Compacto</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'hatchback']) }}">Hatchback</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'luxury']) }}">Carro de Luxo</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'mpv']) }}">MPV (Monovolume)</a></li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'c1_segment']) }}">Carros
+                                                    Segmento C1</a></li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'compact']) }}">Compacto</a>
+                                            </li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'hatchback']) }}">Hatchback</a>
+                                            </li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'luxury']) }}">Carro de
+                                                    Luxo</a></li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'mpv']) }}">MPV
+                                                    (Monovolume)</a></li>
                                             <li><a href="{{ route('site.car-list', ['type_car' => 'van']) }}">Van</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-sm-6">
                                         <ul class="category-list">
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Maruti Suzuki']]) }}">Maruti Suzuki</a></li>
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Hyundai']]) }}">Hyundai</a></li>
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Tata Motors']]) }}">Tata Motors</a></li>
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Skoda']]) }}">Skoda</a></li>
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Volkswagen']]) }}">Volkswagen</a></li>
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Renault']]) }}">Renault</a></li>
+                                            <li><a href="{{ route('site.car-list', ['brands' => ['Maruti Suzuki']]) }}">Maruti
+                                                    Suzuki</a></li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['brands' => ['Hyundai']]) }}">Hyundai</a>
+                                            </li>
+                                            <li><a href="{{ route('site.car-list', ['brands' => ['Tata Motors']]) }}">Tata
+                                                    Motors</a></li>
+                                            <li><a href="{{ route('site.car-list', ['brands' => ['Skoda']]) }}">Skoda</a>
+                                            </li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['brands' => ['Volkswagen']]) }}">Volkswagen</a>
+                                            </li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['brands' => ['Renault']]) }}">Renault</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-sm-6">
                                         <ul class="category-list">
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Toyota']]) }}">Toyota</a></li>
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Nissan']]) }}">Nissan</a></li>
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['MG Motor']]) }}">MG Motor</a></li>
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Kia']]) }}">Kia</a></li>
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Ford']]) }}">Ford</a></li>
-                                            <li><a href="{{ route('site.car-list', ['brands' => ['Jeep']]) }}">Jeep</a></li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['brands' => ['Toyota']]) }}">Toyota</a>
+                                            </li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['brands' => ['Nissan']]) }}">Nissan</a>
+                                            </li>
+                                            <li><a href="{{ route('site.car-list', ['brands' => ['MG Motor']]) }}">MG
+                                                    Motor</a></li>
+                                            <li><a href="{{ route('site.car-list', ['brands' => ['Kia']]) }}">Kia</a>
+                                            </li>
+                                            <li><a href="{{ route('site.car-list', ['brands' => ['Ford']]) }}">Ford</a>
+                                            </li>
+                                            <li><a href="{{ route('site.car-list', ['brands' => ['Jeep']]) }}">Jeep</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-sm-6">
                                         <ul class="category-list">
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'coupe']) }}">Coupé</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'convertible']) }}">Conversível</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'hatchback']) }}">Hatchback</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'suv']) }}">SUV (Utilitário Esportivo)</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'minivan']) }}">Minivan</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'truck']) }}">Camião</a></li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'coupe']) }}">Coupé</a>
+                                            </li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'convertible']) }}">Conversível</a>
+                                            </li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'hatchback']) }}">Hatchback</a>
+                                            </li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'suv']) }}">SUV
+                                                    (Utilitário Esportivo)</a></li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'minivan']) }}">Minivan</a>
+                                            </li>
+                                            <li><a
+                                                    href="{{ route('site.car-list', ['type_car' => 'truck']) }}">Camião</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -724,7 +794,8 @@
         <!-- /Categories Section -->
 
         <!-- Modal for Reserved Car -->
-        <div class="modal fade" id="reservedCarModal" tabindex="-1" aria-labelledby="reservedCarModalLabel" aria-hidden="true">
+        <div class="modal fade" id="reservedCarModal" tabindex="-1" aria-labelledby="reservedCarModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -735,8 +806,10 @@
                         <p><strong>Período de Reserva:</strong> <span id="reservationDates"></span></p>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ route('site.car-list') }}" class="btn btn-primary"  style="background-color: #FF8603; color:black;padding: 5px;">Ver Outros Carros</a>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #d61818ff;">Fechar</button>
+                        <a href="{{ route('site.car-list') }}" class="btn btn-primary"
+                            style="background-color: #FF8603; color:black;padding: 5px;">Ver Outros Carros</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            style="background-color: #d61818ff;">Fechar</button>
                     </div>
                 </div>
             </div>
@@ -744,46 +817,53 @@
 
         <!-- JavaScript for Modal -->
         <script>
-           document.addEventListener('DOMContentLoaded', function () {
-    const reservedCars = document.querySelectorAll('.reserved-car');
-    const modalElement = document.getElementById('reservedCarModal');
-    const reservationDatesElement = document.getElementById('reservationDates');
-    
-    // Instanciar o modal apenas uma vez
-    const modal = new bootstrap.Modal(modalElement, {
-        backdrop: true,
-        keyboard: true
-    });
+            document.addEventListener('DOMContentLoaded', function() {
+                const reservedCars = document.querySelectorAll('.reserved-car');
+                const modalElement = document.getElementById('reservedCarModal');
+                const reservationDatesElement = document.getElementById('reservationDates');
 
-    reservedCars.forEach(car => {
-        car.addEventListener('click', function (e) {
-            e.preventDefault(); // Evita comportamento padrão do link
-            const reservationDates = this.getAttribute('data-reservation-dates');
-            reservationDatesElement.textContent = reservationDates;
-            modal.show(); // Exibe o modal
-        });
-    });
+                // Instanciar o modal apenas uma vez
+                const modal = new bootstrap.Modal(modalElement, {
+                    backdrop: true,
+                    keyboard: true
+                });
 
-    // Limpar o conteúdo do modal ao fechar
-    modalElement.addEventListener('hidden.bs.modal', function () {
-        reservationDatesElement.textContent = ''; // Limpa as datas
-        document.body.classList.remove('modal-open'); // Remove classe que bloqueia interação
-        const backdrop = document.querySelector('.modal-backdrop');
-        if (backdrop) {
-            backdrop.remove(); // Remove manualmente o backdrop, se presente
-        }
-    });
-});
+                reservedCars.forEach(car => {
+                    car.addEventListener('click', function(e) {
+                        e.preventDefault(); // Evita comportamento padrão do link
+                        const reservationDates = this.getAttribute('data-reservation-dates');
+                        reservationDatesElement.textContent = reservationDates;
+                        modal.show(); // Exibe o modal
+                    });
+                });
+
+                // Limpar o conteúdo do modal ao fechar
+                modalElement.addEventListener('hidden.bs.modal', function() {
+                    reservationDatesElement.textContent = ''; // Limpa as datas
+                    document.body.classList.remove('modal-open'); // Remove classe que bloqueia interação
+                    const backdrop = document.querySelector('.modal-backdrop');
+                    if (backdrop) {
+                        backdrop.remove(); // Remove manualmente o backdrop, se presente
+                    }
+                });
+            });
         </script>
 
         <!-- scrollToTop start -->
         <div class="progress-wrap active-progress">
             <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
                 <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
-                      style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919px, 307.919px; stroke-dashoffset: 228.265px;">
+                    style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919px, 307.919px; stroke-dashoffset: 228.265px;">
                 </path>
             </svg>
         </div>
         <!-- scrollToTop end -->
+
+        <style>
+            .input-wrap ::placeholder{
+                color: #ffffff;
+                font-size: 14px;
+            }
+        </style>
     </div>
 @endsection
