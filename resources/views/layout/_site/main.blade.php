@@ -25,6 +25,7 @@
     <!-- Aos CSS -->
     <link rel="stylesheet" href="{{ url('assets/user/plugins/aos/aos.css') }}">
 
+    
     <!-- Fearther CSS -->
     <link rel="stylesheet" href="{{ url('assets/user/css/feather.css') }}">
 
