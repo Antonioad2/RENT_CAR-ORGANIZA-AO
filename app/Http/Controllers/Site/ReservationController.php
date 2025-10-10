@@ -231,6 +231,8 @@ class ReservationController extends Controller
                 Log::error('Erro ao enviar email: ' . $e->getMessage());
             }
 
+            
+
             // 🔹 Limpa sessão (mantendo o stage e car_id)
             session()->forget(['reservation_data', 'reservation_services', 'reservation_client']);
 
@@ -240,6 +242,8 @@ class ReservationController extends Controller
             DB::rollBack();
             return back()->withErrors(['error' => 'Erro no pagamento: ' . $e->getMessage()]);
         }
+
+        
     }
 
 
