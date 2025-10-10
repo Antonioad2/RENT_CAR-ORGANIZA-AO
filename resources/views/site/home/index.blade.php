@@ -357,7 +357,7 @@
                                         </a>
                                     </div>
                                     <!-- <span class="location"><i
-                                                    class="bx bx-map me-1"></i>{{ $car->location ?? 'Localização' }}</span> -->
+                                                            class="bx bx-map me-1"></i>{{ $car->location ?? 'Localização' }}</span> -->
                                 </div>
                                 <div class="listing-content">
                                     <div class="listing-features d-flex align-items-center justify-content-between">
@@ -431,12 +431,12 @@
                     <h2>Carros Populares Recomendados</h2>
                     <p>Aqui estão algumas opções versáteis que atendem a diferentes necessidades</p>
                 </div>
-                <div class="car-slider owl-carousel">
+                <div class="car-slider owl-carousel" style="height:80vh">
                     @foreach ($cars as $car)
                         <div class="car-item">
                             <h6>{{ strtoupper($car->brand->name ?? 'Marca') }}</h6>
                             <h2 class="display-1">{{ strtoupper($car->models->name ?? 'Modelo') }}</h2>
-                            <div class="car-img">
+                            <div class="car-img img-car-m">
                                 <img src="{{ url('Uploads/car/car_images/' . $car->image) }}" alt="img"
                                     class="img-fluid">
                                 <div class="amount-icon">
@@ -470,6 +470,46 @@
             </div>
         </section>
         <!-- /Popular Section -->
+
+        <!-- Brand Section -->
+        <section class="brand-section" >
+            <div class="container">
+                <div class="section-heading heading-four" data-aos="fade-down">
+                    <h2 class="text-white">Alugue Por Marcas</h2>
+                    <p>Aqui temos uma lista de algumas Marcas mais usadas em Angola</p>
+                </div>
+                <div class="brands-slider owl-carousel">
+                    <div class="brand-wrap">
+                        <img src="{{ url('assets/user/img/brand/brand-09.svg') }}" alt="img">
+                        <p>Chevrolet</p>
+                    </div>
+                    <div class="brand-wrap">
+                        <img src="{{ url('assets/user/img/brand/brand-10.svg') }}" alt="img">
+                        <p>BMW</p>
+                    </div>
+                    <div class="brand-wrap">
+                        <img src="{{ url('assets/user/img/brand/brand-11.svg') }}" alt="img">
+                        <p>Mercedes Benz</p>
+                    </div>
+                    <div class="brand-wrap">
+                        <img src="{{ url('assets/user/img/brand/brand-12.svg') }}" alt="img">
+                        <p>Hyundai</p>
+                    </div>
+                    <div class="brand-wrap">
+                        <img src="{{ url('assets/user/img/brand/brand-13.svg') }}" alt="img">
+                        <p>Audi</p>
+                    </div>
+                    <div class="brand-wrap">
+                        <img src="{{ url('assets/user/img/brand/brand-14.svg') }}" alt="img">
+                        <p>Kia</p>
+                    </div>
+                </div>
+                <div class="brand-img text-center">
+                    <img src="{{ url('assets/user/img/bg/brand.png') }}" alt="img" class="img-fluid">
+                </div>
+            </div>
+        </section>
+        <!-- /Brand Section -->
 
         <!-- Rental Section -->
         <section class="rental-section-four">
@@ -722,7 +762,8 @@
                                                     Luxo</a></li>
                                             <li><a href="{{ route('site.car-list', ['type_car' => 'mpv']) }}">MPV
                                                     (Monovolume)</a></li>
-                                            <li><a href="{{ route('site.car-list', ['type_car' => 'van']) }}">Van</a></li>
+                                            <li><a href="{{ route('site.car-list', ['type_car' => 'van']) }}">Van</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-sm-6">
