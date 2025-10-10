@@ -49,8 +49,7 @@
                                 <label>Local de Retirada</label>
                                 <div class="input-wrap">
                                     <input type="text" class="form-control" name="pickup_location"
-                                        placeholder="Digite o local de retirada"
-                                        value="">
+                                        placeholder="Digite o local de retirada" value="">
                                     <span class="input-icon"></span>
                                 </div>
                             </div>
@@ -60,8 +59,7 @@
                                 <label>Local de Devolução</label>
                                 <div class="input-wrap">
                                     <input type="text" class="form-control" name="return_location"
-                                        placeholder="Digite o local de devolução"
-                                        value="">
+                                        placeholder="Digite o local de devolução" value="">
                                     <span class="input-icon"></span>
                                 </div>
                             </div>
@@ -359,7 +357,7 @@
                                         </a>
                                     </div>
                                     <!-- <span class="location"><i
-                                                class="bx bx-map me-1"></i>{{ $car->location ?? 'Localização' }}</span> -->
+                                                    class="bx bx-map me-1"></i>{{ $car->location ?? 'Localização' }}</span> -->
                                 </div>
                                 <div class="listing-content">
                                     <div class="listing-features d-flex align-items-center justify-content-between">
@@ -860,7 +858,7 @@
         <!-- scrollToTop end -->
 
         <style>
-            .input-wrap ::placeholder{
+            .input-wrap ::placeholder {
                 color: #ffffff;
                 font-size: 14px;
             }
