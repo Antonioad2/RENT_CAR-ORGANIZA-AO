@@ -27,55 +27,55 @@
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
                             <div class="dropdown filter-dropdown">
                                 <a class="btn btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10" data-bs-auto-close="outside">
-                                    <i class="feather-filter me-2"></i>
-                                    <span>Filter</span>
+                                    <i class="feather-file-text me-2"></i>
+                                    <span>Tipo De Relatório</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <div class="dropdown-item">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="Role" checked="checked">
-                                            <label class="custom-control-label c-pointer" for="Role">Role</label>
+                                            <label class="custom-control-label c-pointer" for="Role">Geral</label>
                                         </div>
                                     </div>
                                     <div class="dropdown-item">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="Team" checked="checked">
-                                            <label class="custom-control-label c-pointer" for="Team">Team</label>
+                                            <label class="custom-control-label c-pointer" for="Team">Motoristas N Selecionado</label>
                                         </div>
                                     </div>
                                     <div class="dropdown-item">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="Email" checked="checked">
-                                            <label class="custom-control-label c-pointer" for="Email">Email</label>
+                                            <label class="custom-control-label c-pointer" for="Email">Masculino</label>
                                         </div>
                                     </div>
                                     <div class="dropdown-item">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="Member" checked="checked">
-                                            <label class="custom-control-label c-pointer" for="Member">Member</label>
+                                            <label class="custom-control-label c-pointer" for="Member">Feminino</label>
                                         </div>
                                     </div>
                                     <div class="dropdown-item">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="Recommendation" checked="checked">
-                                            <label class="custom-control-label c-pointer" for="Recommendation">Recommendation</label>
+                                            <label class="custom-control-label c-pointer" for="Recommendation">Motoristas selecinado</label>
                                         </div>
                                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <a href="javascript:void(0);" class="dropdown-item">
+                                    <!-- <a href="javascript:void(0);" class="dropdown-item">
                                         <i class="feather-plus me-3"></i>
                                         <span>Create New</span>
-                                    </a>
+                                    </a> -->
                                     <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="feather-filter me-3"></i>
-                                        <span>Manage Filter</span>
+                                        <i class="feather-file-text me-3"></i>
+                                        <span>Gerar Relatório</span>
                                     </a>
                                 </div>
                             </div>
-                            <a href="javascript:void(0);" class="btn btn-primary">
+                           <!--  <a href="javascript:void(0);" class="btn btn-primary">
                                 <i class="feather-plus me-2"></i>
                                 <span>Add Widgets</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                     <div class="d-md-none d-flex align-items-center">
