@@ -82,7 +82,7 @@
                                         </font>
                                     </h6>
                                 </li>
-                                <li class="active">
+                               {{--  <li class="active">
                                     <span><img src="{{ url('assets/user/img/icons/booking-head-icon-04.svg') }}"
                                             alt="Ícone de reserva"></span>
                                     <h6>
@@ -90,7 +90,7 @@
                                             <font dir="auto" style="vertical-align: inherit;">Confira</font>
                                         </font>
                                     </h6>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <span><img src="{{ url('assets/user/img/icons/booking-head-icon-05.svg') }}"
                                             alt="Ícone de reserva"></span>

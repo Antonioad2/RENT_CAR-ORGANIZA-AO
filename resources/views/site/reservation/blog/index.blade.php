@@ -184,7 +184,7 @@
 				    </div>
 				    <div class="col-lg-4 theiaStickySidebar">
 				        <div class="rightsidebar">
-						    <div class="card">
+						   {{--  <div class="card">
 						      <h4><img src="{{ url('assets/user/img/icons/details-icon.svg')}}" alt="ícone de detalhes"> Filtro</h4>
 						      <div class="filter-content looking-input input-block mb-0">
 								  <input type="text" class="form-control" placeholder="Para pesquisar, digite e pressione Enter">
@@ -200,8 +200,8 @@
 							      <li><a href="javascript:void(0)">Internet Sem Fio</a></li>
 							      <li><a href="javascript:void(0)">Amigável para Pets</a></li>									   
 							    </ul>
-							</div>
-							<div class="card tags-widget">
+							</div> --}}
+							{{-- <div class="card tags-widget">
 							    <h4><i class="feather-tag"></i> Tags</h4>
 								<ul class="tags">
 								   <li>Ar </li>
@@ -213,7 +213,7 @@
 								   <li>Marca </li>
 								   <li>Transmissão </li>							
 								</ul>
-							</div>
+							</div> --}}
 							<div class="card mb-0">
 							    <h4><i class="feather-tag"></i> Artigo Principal</h4>
 								<div class="article">

@@ -448,7 +448,7 @@
                                                         <div class="group-img">
                                                             <div class="form-wrap">
                                                                 <input type="text" name="pickup_location" class="form-control"
-                                                                    placeholder="digite o lugar para entrega">
+                                                                    placeholder="digite o lugar para entrega" required>
                                                                 <span class="form-icon">
                                                                     <i class="fa-solid fa-location-crosshairs"></i>
                                                                 </span>
@@ -471,7 +471,7 @@
                                                         <div class="group-img">
                                                             <div class="form-wrap">
                                                                 <input type="text" name="return_location" class="form-control"
-                                                                    placeholder="digite o lugar para retorno">
+                                                                    placeholder="digite o lugar para retorno" required>
                                                                 <span class="form-icon">
                                                                     <i class="fa-solid fa-location-crosshairs"></i>
                                                                 </span>
@@ -489,7 +489,7 @@
                                                                 <div class="form-wrap">
                                                                     <input type="text" name="start_date"
                                                                         class="form-control datetimepicker"
-                                                                        placeholder="04/11/2023">
+                                                                        placeholder="04/11/2023" required>
                                                                     <span class="form-icon">
                                                                         <i class="fa-regular fa-calendar-days"></i>
                                                                     </span>
@@ -500,7 +500,7 @@
                                                             <div class="group-img">
                                                                 <div class="form-wrap">
                                                                     <input type="text" name="delivery_time" class="form-control timepicker"
-                                                                        placeholder="11:00 AM">
+                                                                        placeholder="11:00 AM" required>
                                                                     <span class="form-icon">
                                                                         <i class="fa-regular fa-clock"></i>
                                                                     </span>
@@ -519,7 +519,7 @@
                                                                 <div class="form-wrap">
                                                                     <input type="text" name="end_date"
                                                                         class="form-control datetimepicker"
-                                                                        placeholder="04/11/2023">
+                                                                        placeholder="04/11/2023" required>
                                                                     <span class="form-icon">
                                                                         <i class="fa-regular fa-calendar-days"></i>
                                                                     </span>
@@ -530,7 +530,7 @@
                                                             <div class="group-img">
                                                                 <div class="form-wrap">
                                                                     <input type="text" name="return_time" class="form-control timepicker"
-                                                                        placeholder="11:00 AM">
+                                                                        placeholder="11:00 AM" required>
                                                                     <span class="form-icon">
                                                                         <i class="fa-regular fa-clock"></i>
                                                                     </span>
@@ -1390,5 +1390,6 @@
         </div>
         <!-- /Custom Date Modal -->
     </div>
+    
 
 @endsection

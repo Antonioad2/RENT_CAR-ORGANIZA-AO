@@ -43,7 +43,7 @@
                                                 alt="Ícone de Reserva"></span>
                                         <h6>Localização e Horário</h6>
                                     </li>
-                                    <li class="active">
+                                    <li class="active activated">
                                         <span><img src="{{ url('assets/user/img/icons/booking-head-icon-02.svg') }}"
                                                 alt="Ícone de Reserva"></span>
                                         <h6>Serviços Extras</h6>
@@ -53,11 +53,11 @@
                                                 alt="Ícone de Reserva"></span>
                                         <h6>Detalhes</h6>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <span><img src="{{ url('assets/user/img/icons/booking-head-icon-04.svg') }}"
                                                 alt="Ícone de Reserva"></span>
                                         <h6>Checkout</h6>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <span><img src="{{ url('assets/user/img/icons/booking-head-icon-05.svg') }}"
                                                 alt="Ícone de Reserva"></span>
@@ -72,7 +72,7 @@
                     <div class="row" style="transform: none;">
                         <div class="col-lg-8">
                             <div class="booking-information-main">
-                                <form action="{{ route('site.reservation.step3', ['car_id' => $car->id]) }}" method="POST">
+                                <form action="{{ route('site.reservation.confirm') }}" method="POST">
                                     @csrf
                                     <div class="booking-information-card">
                                         <div class="booking-info-head justify-content-between">
@@ -94,7 +94,7 @@
                                                         <label class="form-label">Nome Completo <span class="text-danger">
                                                                 *</span></label>
                                                         <input type="text" name="name" class="form-control"
-                                                            placeholder="Digite o Nome">
+                                                            placeholder="Digite o Nome" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -102,7 +102,7 @@
                                                         <label class="form-label">Bilhete de Identidade <span
                                                                 class="text-danger"> *</span></label>
                                                         <input type="text" name="bi" class="form-control"
-                                                            placeholder="Digite o Número do seu BI">
+                                                            placeholder="Digite o Número do seu BI" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -110,7 +110,7 @@
                                                         <label class="form-label">Endereço de E-mail <span
                                                                 class="text-danger"> *</span></label>
                                                         <input type="text" name="email" class="form-control"
-                                                            placeholder="Digite o E-mail">
+                                                            placeholder="Digite o E-mail" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -118,7 +118,7 @@
                                                         <label class="form-label">Número de Telefone <span
                                                                 class="text-danger"> *</span></label>
                                                         <input type="text" name="phone" class="form-control"
-                                                            placeholder="Digite o Número de Telefone">
+                                                            placeholder="Digite o Número de Telefone" required>
                                                     </div>
                                                 </div>
                                                 {{-- <div class="col-md-6">
@@ -147,7 +147,7 @@
                                                         <label class="form-label">Endereço <span class="text-danger">
                                                                 *</span></label>
                                                         <input type="text" name="address" class="form-control"
-                                                            placeholder="Digite o Endereço">
+                                                            placeholder="Digite o Endereço" required>
                                                     </div>
                                                 </div>
                                                 {{-- <div class="col-md-4">
@@ -191,11 +191,18 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="alert alert-warning mt-4">
+    <h5 class="text-center">
+        💰 O pagamento deverá ser feito  no momento da entrega do veículo.
+    </h5>
+</div>
+
+
+
                                     <div class="booking-info-btns d-flex justify-content-end">
                                         <a href="{{ route('site.reservation.checkout')}}"
                                             class="btn btn-secondary">Voltar para Serviços Extras</a>
-                                        <button class="btn btn-primary continue-book-btn" type="submit">Confirmar & Pagar
-                                            Agora</button>
+                                        <button class="btn btn-primary continue-book-btn" type="submit">Confirmar Reserva</button>
                                     </div>
                                 </form>
                             </div>

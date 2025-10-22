@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\CardController;
+use App\Http\Controllers\Admin\OfferController;
                    
 
 
@@ -191,6 +192,19 @@ Route::prefix('/admin/users')->name('users.')->group(function () {
     Route::get('userEdit/{user}/edit', [UserController::class, 'edit'])->name('edit');
     Route::put('/{user}', [UserController::class, 'update'])->name('update');
     Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+});
+
+/*--------------------------------------------------------
+                      Offers routes
+--------------------------------------------------------*/
+Route::prefix('/admin/offers')->name('offers.')->group(function () {
+    Route::get('/', [OfferController::class, 'index'])->name('index');
+    Route::get('/create', [OfferController::class, 'create'])->name('create');
+    Route::post('/', [OfferController::class, 'store'])->name('store');
+    Route::get('offerView/{offer}', [OfferController::class, 'show'])->name('show');
+    Route::get('offerEdit/{offer}/edit', [OfferController::class, 'edit'])->name('edit');
+    Route::put('/{offer}', [OfferController::class, 'update'])->name('update');
+    Route::delete('/{offer}', [OfferController::class, 'destroy'])->name('destroy');
 });
 
 

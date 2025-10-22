@@ -213,7 +213,7 @@
                                 <ul class="location-lists">
                                     <li>
                                         <h6>Modo de pagamento</h6>
-                                        <p>Cartão de Débito</p>
+                                        <p>A ser pago na entrega do veículo</p>
                                     </li>
                                     <li>
                                         <h6>ID da transação</h6>

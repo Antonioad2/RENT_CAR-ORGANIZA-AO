@@ -131,7 +131,7 @@
                 </li>
                 
                 {{--Lista de Cartões--}}
-                <li class="nxl-item nxl-hasmenu">
+               {{--  <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="fa-regular fa-credit-card"></i></span>
                         <span class="nxl-mtext">Cartões</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -140,7 +140,7 @@
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('cards.index')}}"><i class="feather-eye"></i>Ver Mais</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('cards.create')}}"><i class="feather-plus"></i>Adicionar Outro</a></li>
                     </ul>
-                </li>
+                </li> --}}
 
                 {{--Lista de Usuários--}}
                 <li class="nxl-item nxl-hasmenu">
@@ -165,6 +165,17 @@
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('reserves.create')}}"><i class="feather-plus"></i>Adicionar Outro</a></li>
                     </ul>
                 </li>
+
+                {{-- Lista de Ofertas --}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-tag"></i></span>
+                        <span class="nxl-mtext">Ofertas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('offers.index')}}"><i class="feather-eye"></i>Ver Mais</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('offers.create')}}"><i class="feather-plus"></i>Adicionar Outro</a></li>
+                    </ul>
             </ul>
 
             {{--<div class="card text-center">

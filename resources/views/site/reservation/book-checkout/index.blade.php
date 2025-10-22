@@ -49,11 +49,11 @@
                                                 alt="Ícone de Reserva"></span>
                                         <h6>Detalhes</h6>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <span><img src="{{ url('assets/user/img/icons/booking-head-icon-04.svg') }}"
                                                 alt="Ícone de Reserva"></span>
                                         <h6>Checkout</h6>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <span><img src="{{ url('assets/user/img/icons/booking-head-icon-05.svg') }}"
                                                 alt="Ícone de Reserva"></span>

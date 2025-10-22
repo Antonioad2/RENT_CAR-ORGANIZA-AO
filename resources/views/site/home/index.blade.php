@@ -335,14 +335,14 @@
                                 <div class="listing-img">
                                     @if ($car->status == 'available')
                                         <a href="{{ route('car.details', $car->id) }}">
-                                            <img src="{{ url('Uploads/car/car_images/' . $car->image) }}"
+                                            <img src="{{ url('uploads/car/car_images/' . $car->image) }}"
                                                 class="img-fluid" alt="{{ $car->brand->name ?? 'Carro' }}">
                                         </a>
                                     @else
                                         <a href="javascript:void(0);" class="reserved-car"
                                             data-car-id="{{ $car->id }}"
                                             data-reservation-dates="{{ $car->reserves && $car->reserves->where('status', 'in_progress')->isNotEmpty() ? \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->start_date)->format('d/m/Y') . ' - ' . \Carbon\Carbon::parse($car->reserves->where('status', 'in_progress')->first()->end_date)->format('d/m/Y') : 'N/A' }}">
-                                            <img src="{{ url('Uploads/car/car_images/' . $car->image) }}"
+                                            <img src="{{ url('uploads/car/car_images/' . $car->image) }}"
                                                 class="img-fluid" alt="{{ $car->brand->name ?? 'Carro' }}">
                                         </a>
                                     @endif
@@ -437,7 +437,7 @@
                             <h6>{{ strtoupper($car->brand->name ?? 'Marca') }}</h6>
                             <h2 class="display-1">{{ strtoupper($car->models->name ?? 'Modelo') }}</h2>
                             <div class="car-img img-car-m">
-                                <img src="{{ url('Uploads/car/car_images/' . $car->image) }}" alt="img"
+                                <img src="{{ url('uploads/car/car_images/' . $car->image) }}" alt="img"
                                     class="img-fluid">
                                 <div class="amount-icon">
                                     <span class="day-amt">
