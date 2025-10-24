@@ -8,7 +8,7 @@ use App\Model\Car; // Correct namespace for the Car model
 use App\Model\Driver;
 use App\Model\Reserve;
 use App\Model\Client;
-use App\Model\offer;
+use App\Model\Offer;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -164,10 +164,20 @@ class HomeController extends Controller
 }
 
 
+    
+
     public function offers()
     {
-         $offers = Offer::all(); // Fetch all offers from the database
+        $offers = Offer::all();
         return view('site.reservation.blog.index', compact('offers'));
+    }
+
+
+    
+    public function offerDetails($id)
+    {
+        $offer = Offer::findOrFail($id);
+        return view('site.reservation.blog-details.index', compact('offer'));
     }
     public function carDetails($car_id)
     {

@@ -28,9 +28,10 @@
 			        <div class="col-lg-8">
 			            <div class="row">
 			               <div class="col-lg-12 col-md-12 d-lg-flex">
-			                	<div class="blog grid-blog">
-									<div class="blog-image-list">
-										<a href="blog-details.html"><img class="img-fluid" src="{{ url('assets/user/img/blog/blog-list-01.jpg')}}" alt="Imagem do Post"></a>
+			                	@forelse ($offers  as $offer)
+									<div class="blog grid-blog">
+									<div class="blog-image-list" >
+										<a href="blog-details.html"><img class="img-fluid" src="{{ url('uploads/offers/' . $offer->image)}}" alt="Imagem do Post"></a>
 									</div>
 									<div class="blog-content">
 		         						<div class="blog-list-date">
@@ -43,20 +44,22 @@
 														<a href="javascript:void(0)"> <span> Alphonsa Daniel </span></a>
 													</div>
 												</li>
-												<li class="date-icon ms-3"><i class="fa-solid fa-calendar-days"></i> <span>6 de Fev, 2023</span></li>
+												<li class="date-icon ms-3"><i class="fa-solid fa-calendar-days"></i> <span>{{ $offer->updated_at->format('d,M,Y') }}</span></li>
 											</ul>										 
 											<p class="blog-category mb-0">
-												<a href="javascript:void(0)"><span>Concessionárias</span></a>
-												<a href="javascript:void(0)"><span>Exibição de Carros</span></a>
 											</p>
 										</div>
-										<h3 class="blog-title"><a href="blog-details.html">Tesla Model S: Garagem Secreta de Colecionador de Carros</a></h3>
-										<p class="blog-description">Todos têm o direito à liberdade de pensamento, consciência e religião; esse direito inclui a liberdade de mudar de religião ou crença, e a liberdade, seja sozinho...</p>
+										<h3 class="blog-title"><a href="blog-details.html">{{ $offer->title }}</a></h3>
+										<p class="blog-description">{{ $offer->description ?? 'Sem nenhuma descrição' }}</p>
 										<a href="blog-details.html" class="viewlink btn btn-primary justify-content-center">Leia Mais <i class="feather-arrow-right ms-2"></i></a>
 									</div>
 							  	</div>
+								@empty
+									<p>Sem Notícias</p>
+								@endforelse
+
 							</div>
-							<div class="col-lg-12 col-md-12 d-lg-flex">
+							{{-- <div class="col-lg-12 col-md-12 d-lg-flex">
 			                	<div class="blog grid-blog">
 									<div class="blog-image-list">
 										<a href="blog-details.html"><img class="img-fluid" src="{{ url('assets/user/img/blog/blog-list-02.jpg')}}" alt="Imagem do Post"></a>
@@ -75,8 +78,6 @@
 												<li class="date-icon ms-3"><i class="fa-solid fa-calendar-days"></i> <span>15 de Fev, 2023</span></li>
 											</ul>										 
 											<p class="blog-category mb-0">
-												<a href="javascript:void(0)"><span>Concessionárias</span></a>
-												<a href="javascript:void(0)"><span>Exibição de Carros</span></a>
 											</p>
 										</div>
 										<h3 class="blog-title"><a href="blog-details.html">Tesla Model S: Garagem Secreta de Colecionador de Carros</a></h3>
@@ -104,8 +105,6 @@
 												<li class="date-icon ms-3"><i class="fa-solid fa-calendar-days"></i> <span>17 de Fev, 2023</span></li>
 											</ul>										 
 											<p class="blog-category mb-0">
-												<a href="javascript:void(0)"><span>Concessionárias</span></a>
-												<a href="javascript:void(0)"><span>Exibição de Carros</span></a>
 											</p>
 										</div>
 										<h3 class="blog-title"><a href="blog-details.html">Tesla Model S: Garagem Secreta de Colecionador de Carros</a></h3>
@@ -133,8 +132,6 @@
 												<li class="date-icon ms-3"><i class="fa-solid fa-calendar-days"></i> <span>10 de Mar, 2023</span></li>
 											</ul>										 
 											<p class="blog-category mb-0">
-												<a href="javascript:void(0)"><span>Concessionárias</span></a>
-												<a href="javascript:void(0)"><span>Exibição de Carros</span></a>
 											</p>
 										</div>
 										<h3 class="blog-title"><a href="blog-details.html">Tesla Model S: Garagem Secreta de Colecionador de Carros</a></h3>
@@ -142,80 +139,15 @@
 										<a href="blog-details.html" class="viewlink btn btn-primary justify-content-center">Leia Mais <i class="feather-arrow-right ms-2"></i></a>
 									</div>
 							  	</div>
-							</div>
+							</div> --}}
 						</div>
 						                   					   
-                         <!--Paginação--> 
-						<!-- <div class="pagination">
-						    <nav>
-							    <ul class="pagination mt-0">
-								    <li class="previtem">
-										<a class="page-link" href="#"><i class="fas fa-regular fa-arrow-left me-2"></i> Anterior</a>
-									</li>
-									<li class="justify-content-center pagination-center"> 
-										<div class="page-group">
-										    <ul>
-												<li class="page-item">
-													<a class="page-link" href="#">1</a>
-												</li>
-												<li class="page-item">
-													<a class="active page-link" href="#">2 <span class="visually-hidden">(atual)</span></a>
-												</li>
-												<li class="page-item">
-													<a class="page-link" href="#">3</a>
-											   </li>
-											   <li class="page-item">
-													<a class="page-link" href="#">4</a>
-											   </li>
-											   <li class="page-item">
-													<a class="page-link" href="#">5</a>
-											   </li>
-											</ul>
-									    </div>													
-									</li>													
-									<li class="nextlink">
-										<a class="page-link" href="#">Próximo <i class="fas fa-regular fa-arrow-right ms-2"></i></a>
-									</li>
-								</ul>
-							</nav>
-						</div> -->
-						<!--/Paginação-->						  
-
 				    </div>
 				    <div class="col-lg-4 theiaStickySidebar">
 				        <div class="rightsidebar">
-						   {{--  <div class="card">
-						      <h4><img src="{{ url('assets/user/img/icons/details-icon.svg')}}" alt="ícone de detalhes"> Filtro</h4>
-						      <div class="filter-content looking-input input-block mb-0">
-								  <input type="text" class="form-control" placeholder="Para pesquisar, digite e pressione Enter">
-							  </div>
-							</div>
-							<div class="card">
-							    <h4><img src="{{ url('assets/user/img/icons/category-icon.svg')}}" alt="ícone de categoria"> Categorias</h4>
-							    <ul class="blogcategories-list">
-							      <li><a href="javascript:void(0)">Aceita Cartões de Crédito</a></li>
-							      <li><a href="javascript:void(0)">Fumar Permitido</a></li>
-							      <li><a href="javascript:void(0)">Estacionamento para Bicicletas</a></li>
-							      <li><a href="javascript:void(0)">Estacionamento na Rua</a></li>
-							      <li><a href="javascript:void(0)">Internet Sem Fio</a></li>
-							      <li><a href="javascript:void(0)">Amigável para Pets</a></li>									   
-							    </ul>
-							</div> --}}
-							{{-- <div class="card tags-widget">
-							    <h4><i class="feather-tag"></i> Tags</h4>
-								<ul class="tags">
-								   <li>Ar </li>
-								   <li>Motor </li>
-								   <li>Item </li>
-								   <li>Na Estrada </li>
-								   <li>Aros </li>
-								   <li>Velocidade </li>
-								   <li>Marca </li>
-								   <li>Transmissão </li>							
-								</ul>
-							</div> --}}
+						   
 							<div class="card mb-0">
-							    <h4><i class="feather-tag"></i> Artigo Principal</h4>
+							    
 								<div class="article">
 									<div class="article-blog">
 										<a href="blog-details.html">

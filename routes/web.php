@@ -39,7 +39,8 @@ Route::get('/reservation/pdf/{id}', [ReservationController::class, 'generatePdf'
 Route::view('/about-us', 'site.reservation.about.index')->name('site.about-us');
 
 //blog
-Route::view('/blog', 'site.reservation.blog.index')->name('site.blog');
+/* Route::view('/blog', 'site.reservation.blog.index')->name('site.blog'); */
+Route::get('/blog', [HomeController::class, 'offers'])->name('site.blog');
 
 //cliente criar e entrar
 Route::view('/client/create', 'site.reservation.client.create.index')->name('site.client-create');
@@ -51,3 +52,5 @@ Route::post('/client-login', [HomeController::class, 'login'])->name('client_log
 /* logout */
 /* DEVE SER POST ESTA ASSIM AINDA PARA TESTE */
 Route::get('/client-logout', [HomeController::class, 'logout'])->name('client_logout');
+
+Route::get('/offers/{id}', [HomeController::class, 'offerDetails'])->name('blog.details');
