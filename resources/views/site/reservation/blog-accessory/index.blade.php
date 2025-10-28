@@ -49,6 +49,20 @@
     </div>
 </div>
 
+<div class="breadcrumb-bar">
+            <div class="container">
+                <div class="row align-items-center text-center">
+                    <div class="col-md-12 col-12">
+                        <h2 class="breadcrumb-title">Venda</h2>
+                        <nav aria-label="breadcrumb" class="page-breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page">De<br>Accessórios</li>
+                            </ol>
+                        </nav>                            
+                    </div>
+                </div>
+            </div>
+        </div>
 <!-- Lista de Acessórios -->
 <div class="main-wrapper">
     <div class="blog-section py-5">
