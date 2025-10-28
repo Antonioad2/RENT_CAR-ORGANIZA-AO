@@ -9,6 +9,7 @@ use App\Model\Driver;
 use App\Model\Reserve;
 use App\Model\Client;
 use App\Model\Offer;
+use App\Model\Accessory;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -168,17 +169,21 @@ class HomeController extends Controller
 
     public function offers()
     {
-        $offers = Offer::all();
+        $offers = Offer::orderBy('id', 'desc')->take(6)->get();
         return view('site.reservation.blog.index', compact('offers'));
+    }
+
+    public function accessory()
+    {   
+        //aparecer apenas 5 acessórios na página inicial    
+
+        $accessories = Accessory::orderBy('id', 'desc')->take(6)->get();
+        return view('site.reservation.blog-accessory.index', compact('accessories'));
     }
 
 
     
-    public function offerDetails($id)
-    {
-        $offer = Offer::findOrFail($id);
-        return view('site.reservation.blog-details.index', compact('offer'));
-    }
+    
     public function carDetails($car_id)
     {
         $car = Car::with(['brand', 'models', 'color', 'fuel', 'supplier'])->findOrFail($car_id);

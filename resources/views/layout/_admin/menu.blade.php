@@ -176,6 +176,19 @@
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('offers.index')}}"><i class="feather-eye"></i>Ver Mais</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('offers.create')}}"><i class="feather-plus"></i>Adicionar Outro</a></li>
                     </ul>
+                </li>
+
+                {{-- Lista de Accessorios --}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-package"></i></span>
+                        <span class="nxl-mtext">Acessórios</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('accessories.index')}}"><i class="feather-eye"></i>Ver Mais</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('accessories.create')}}"><i class="feather-plus"></i>Adicionar Outro</a></li>
+                    </ul>   
+                </li>
             </ul>
 
             {{--<div class="card text-center">

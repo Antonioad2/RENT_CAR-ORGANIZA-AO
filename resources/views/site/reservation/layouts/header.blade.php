@@ -146,7 +146,11 @@
                     </li> --}}
 
                     <li class="has-submenu">
-                        <a href="{{route('site.blog')}}">Ofertas </i></a>
+                        <a href="{{route('site.blog')}}">Ofertas de Viaturas</i></a>
+                        <ul class="submenu">
+                                    <li><a href="{{route('site.blog')}}">Venda De Viatura</a></li>
+                                    <li><a href="{{route('site.blog-accessory')}}">Acessorios de Viatura</a></li>
+                                </ul>
                     </li>
 
                     <li class="has-submenu">

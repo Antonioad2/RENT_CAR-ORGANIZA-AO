@@ -33,7 +33,7 @@ class OfferController extends Controller
     {
         $request->validate([
             'title' => 'required|max:1000',
-            'subtitle' => 'required|max:10000',
+            'subtitle' => 'required|numeric|min:0',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'description' => 'nullable|max:65500',
             'offer_date' => 'required|date',
@@ -84,7 +84,7 @@ class OfferController extends Controller
 
         $request->validate([
             'title' => 'required|max:1000',
-            'subtitle' => 'required|max:10000',
+            'subtitle' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'description' => 'nullable|max:65500',
             'offer_date' => 'required|date',

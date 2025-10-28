@@ -42,6 +42,9 @@ Route::view('/about-us', 'site.reservation.about.index')->name('site.about-us');
 /* Route::view('/blog', 'site.reservation.blog.index')->name('site.blog'); */
 Route::get('/blog', [HomeController::class, 'offers'])->name('site.blog');
 
+//blog acessório
+Route::get('/blog/accessory', [HomeController::class, 'accessory'])->name('site.blog-accessory');
+
 //cliente criar e entrar
 Route::view('/client/create', 'site.reservation.client.create.index')->name('site.client-create');
 Route::post('/client-create', [HomeController::class, 'client_create'])->name('client_create');
@@ -52,5 +55,3 @@ Route::post('/client-login', [HomeController::class, 'login'])->name('client_log
 /* logout */
 /* DEVE SER POST ESTA ASSIM AINDA PARA TESTE */
 Route::get('/client-logout', [HomeController::class, 'logout'])->name('client_logout');
-
-Route::get('/offers/{id}', [HomeController::class, 'offerDetails'])->name('blog.details');

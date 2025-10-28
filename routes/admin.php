@@ -17,6 +17,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\CardController;
 use App\Http\Controllers\Admin\OfferController;
+use App\Http\Controllers\Admin\AccessoryController;
                    
 
 
@@ -207,7 +208,15 @@ Route::prefix('/admin/offers')->name('offers.')->group(function () {
     Route::delete('/{offer}', [OfferController::class, 'destroy'])->name('destroy');
 });
 
-
+Route::prefix('/admin/accessories')->name('accessories.')->group(function () {
+    Route::get('/', [AccessoryController::class, 'index'])->name('index');
+    Route::get('/create', [AccessoryController::class, 'create'])->name('create');
+    Route::post('/', [AccessoryController::class, 'store'])->name('store');
+    Route::get('accessoryView/{accessory}', [AccessoryController::class, 'show'])->name('show');
+    Route::get('accessoryEdit/{accessory}/edit', [AccessoryController::class, 'edit'])->name('edit');
+    Route::put('/{accessory}', [AccessoryController::class, 'update'])->name('update');
+    Route::delete('/{accessory}', [AccessoryController::class, 'destroy'])->name('destroy');    
+});
 
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
