@@ -8,7 +8,7 @@ use App\Model\Car; // Correct namespace for the Car model
 use App\Model\Driver;
 use App\Model\Reserve;
 use App\Model\Client;
-use App\Model\Offer;
+use App\Model\Sell;
 use App\Model\Accessory;
 use Illuminate\Support\Facades\Hash;
 
@@ -167,10 +167,10 @@ class HomeController extends Controller
 
     
 
-    public function offers()
+    public function sell()
     {
-        $offers = Offer::orderBy('id', 'desc')->take(6)->get();
-        return view('site.reservation.blog.index', compact('offers'));
+        $sells = Sell::orderBy('id', 'desc')->take(6)->get();
+        return view('site.reservation.blog.index', compact('sells'));
     }
 
     public function accessory()

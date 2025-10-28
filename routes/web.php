@@ -38,10 +38,9 @@ Route::get('/reservation/pdf/{id}', [ReservationController::class, 'generatePdf'
 //sobre nós
 Route::view('/about-us', 'site.reservation.about.index')->name('site.about-us');
 
-//blog
-/* Route::view('/blog', 'site.reservation.blog.index')->name('site.blog'); */
-Route::get('/blog', [HomeController::class, 'offers'])->name('site.blog');
+//blog venda
 
+Route::get('/blog', [HomeController::class, 'sell'])->name('site.blog');
 //blog acessório
 Route::get('/blog/accessory', [HomeController::class, 'accessory'])->name('site.blog-accessory');
 

@@ -1,5 +1,5 @@
 @extends('layout._admin.main')
-@section('title', 'Duralux || Ofertas')
+@section('title', 'Duralux || Vendas')
 @section('content-admin')
 
 <div class="nxl-content">
@@ -7,11 +7,11 @@
     <div class="page-header">
         <div class="page-header-left d-flex align-items-center">
             <div class="page-header-title">
-                <h5 class="m-b-10">Ofertas</h5>
+                <h5 class="m-b-10">Vendas</h5>
             </div>
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item">Ofertas</li>
+                <li class="breadcrumb-item">Vendas</li>
             </ul>
         </div>
         <div class="page-header-right ms-auto">
@@ -23,16 +23,11 @@
                     </a>
                 </div>
                 <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                    <a href="{{ route('offers.create') }}" class="btn btn-primary">
+                    <a href="{{ route('sells.create') }}" class="btn btn-primary">
                         <i class="feather-plus me-2"></i>
-                        <span>Nova Oferta</span>
+                        <span>Nova Venda</span>
                     </a>
                 </div>
-            </div>
-            <div class="d-md-none d-flex align-items-center">
-                <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                    <i class="feather-align-right fs-20"></i>
-                </a>
             </div>
         </div>
     </div>
@@ -45,34 +40,46 @@
                 <div class="card stretch stretch-full">
                     <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-hover" id="offersList">
+                            <table class="table table-hover align-middle" id="sellsList">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Título</th>
-                                        <th>Subtítulo</th>
+                                        <th>Nome</th>
+                                        <th>Descrição</th>
+                                        <th>Preço</th>
                                         <th>Imagem</th>
-                                        <th>Data</th>
+                                        <th>Telefone</th>
+                                        <th>WhatsApp</th>
                                         <th class="text-end">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($offers as $offer)
+                                    @forelse($sells as $sell)
                                         <tr>
-                                            <td><a href="{{ route('offers.show', $offer) }}" class="fw-bold">{{ $offer->id }}</a></td>
-                                            <td>{{ $offer->title }}</td>
-                                            <td>{{ Str::limit($offer->subtitle, 50) }}</td>
-                                             <td>
-                                                @if($offer->image)
-                                                    <img src="{{ asset('uploads/offers/' . $offer->image) }}" alt="" width="60" height="40" style="object-fit: cover;">
+                                            <td><a href="{{ route('sells.show', $sell) }}" class="fw-bold">{{ $sell->id }}</a></td>
+                                            <td>{{ $sell->name }}</td>
+                                            <td>{{ Str::limit($sell->description, 50) }}</td>
+                                            <td>{{ number_format($sell->price, 2, ',', '.') }} Kz</td>
+                                            <td>
+                                                @if($sell->image)
+                                                    <img src="{{ asset('uploads/sells/' . $sell->image) }}" alt="Imagem" width="60" height="40" style="object-fit: cover;">
                                                 @else
                                                     <span class="text-muted">Sem imagem</span>
                                                 @endif
                                             </td>
-                                            <td>{{ \Carbon\Carbon::parse($offer->offer_date)->format('d/m/Y') }}</td>
+                                            <td>{{ $sell->number ?? '—' }}</td>
                                             <td>
+                                                @if($sell->whatsapp)
+                                                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $sell->whatsapp) }}" target="_blank" class="btn btn-sm btn-success">
+                                                        <i class="feather-whatsapp"></i> {{ $sell->whatsapp }}
+                                                    </a>
+                                                @else
+                                                    <span class="text-muted">—</span>
+                                                @endif
+                                            </td>
+                                            <td class="text-end">
                                                 <div class="hstack gap-2 justify-content-end">
-                                                    <a href="{{ route('offers.show', $offer) }}" class="avatar-text avatar-md">
+                                                    <a href="{{ route('sells.show', $sell) }}" class="avatar-text avatar-md" title="Ver detalhes">
                                                         <i class="feather feather-eye"></i>
                                                     </a>
                                                     <div class="dropdown">
@@ -81,17 +88,17 @@
                                                         </a>
                                                         <ul class="dropdown-menu">
                                                             <li>
-                                                                <a class="dropdown-item" href="{{ route('offers.edit', $offer) }}">
+                                                                <a class="dropdown-item" href="{{ route('sells.edit', $sell) }}">
                                                                     <i class="feather feather-edit-3 me-3"></i>
                                                                     <span>Editar</span>
                                                                 </a>
                                                             </li>
                                                             <li class="dropdown-divider"></li>
                                                             <li>
-                                                                <form action="{{ route('offers.destroy', $offer) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir esta oferta?');">
+                                                                <form action="{{ route('sells.destroy', $sell) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir esta venda?');">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit" class="dropdown-item">
+                                                                    <button type="submit" class="dropdown-item text-danger">
                                                                         <i class="feather feather-trash-2 me-3"></i>
                                                                         <span>Excluir</span>
                                                                     </button>
@@ -104,7 +111,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="6" class="text-center">Nenhuma oferta encontrada.</td>
+                                            <td colspan="8" class="text-center">Nenhuma venda encontrada.</td>
                                         </tr>
                                     @endforelse
                                 </tbody>

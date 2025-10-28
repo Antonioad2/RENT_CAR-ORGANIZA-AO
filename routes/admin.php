@@ -18,7 +18,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\CardController;
 use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\AccessoryController;
-                   
+use App\Http\Controllers\Admin\SellController;                  
 
 
 /*-------------------------------------------------------
@@ -198,7 +198,7 @@ Route::prefix('/admin/users')->name('users.')->group(function () {
 /*--------------------------------------------------------
                       Offers routes
 --------------------------------------------------------*/
-Route::prefix('/admin/offers')->name('offers.')->group(function () {
+/* Route::prefix('/admin/offers')->name('offers.')->group(function () {
     Route::get('/', [OfferController::class, 'index'])->name('index');
     Route::get('/create', [OfferController::class, 'create'])->name('create');
     Route::post('/', [OfferController::class, 'store'])->name('store');
@@ -206,7 +206,17 @@ Route::prefix('/admin/offers')->name('offers.')->group(function () {
     Route::get('offerEdit/{offer}/edit', [OfferController::class, 'edit'])->name('edit');
     Route::put('/{offer}', [OfferController::class, 'update'])->name('update');
     Route::delete('/{offer}', [OfferController::class, 'destroy'])->name('destroy');
-});
+}); */
+
+Route::prefix('/admin/sells')->name('sells.')->group(function () {
+    Route::get('/', [SellController::class, 'index'])->name('index');
+    Route::get('/create', [SellController::class, 'create'])->name('create');
+    Route::post('/', [SellController::class, 'store'])->name('store');
+    Route::get('sellView/{sell}', [SellController::class, 'show'])->name('show');
+    Route::get('sellEdit/{sell}/edit', [SellController::class, 'edit'])->name('edit');
+    Route::put('/{sell}', [SellController::class, 'update'])->name('update');
+    Route::delete('/{sell}', [SellController::class, 'destroy'])->name('destroy');    
+}); 
 
 Route::prefix('/admin/accessories')->name('accessories.')->group(function () {
     Route::get('/', [AccessoryController::class, 'index'])->name('index');
