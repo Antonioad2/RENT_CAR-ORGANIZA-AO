@@ -8,6 +8,8 @@ use App\Model\Car; // Correct namespace for the Car model
 use App\Model\Driver;
 use App\Model\Reserve;
 use App\Model\Client;
+use App\Model\Sell;
+use App\Model\Accessory;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -163,6 +165,25 @@ class HomeController extends Controller
 }
 
 
+    
+
+    public function sell()
+    {
+        $sells = Sell::orderBy('id', 'desc')->take(6)->get();
+        return view('site.reservation.blog.index', compact('sells'));
+    }
+
+    public function accessory()
+    {   
+        //aparecer apenas 5 acessórios na página inicial    
+
+        $accessories = Accessory::orderBy('id', 'desc')->take(6)->get();
+        return view('site.reservation.blog-accessory.index', compact('accessories'));
+    }
+
+
+    
+    
     public function carDetails($car_id)
     {
         $car = Car::with(['brand', 'models', 'color', 'fuel', 'supplier'])->findOrFail($car_id);
